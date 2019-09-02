@@ -26,6 +26,10 @@ devtools::install_github("2DegreesInvesting/r2dii", auth_token = "abc")
 
 ## Example
 
+Attaching r2dii automatically attaches other r2dii packages.
+
 ``` r
 library(r2dii)
+#> Loading required package: r2dii.dataprep
+#> Loading required package: r2dii.dataraw
 ```
