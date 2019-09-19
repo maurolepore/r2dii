@@ -1,0 +1,69 @@
+---
+title: "Documenting datasets"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Documenting datasets
+
+The goal of this article is to provide guidelines to document r2dii datasets. This should make it easier to understand existing datasets and to add new ones.
+
+### Documenting generic datasets
+
+Generic datasets (e.g. `loanbook`) should have these components:
+
+* A generic English name that is meaningful to everyone (e.g. `loanbook`). Prefer meaningful words over shorter obscure abbreviations or acronyms (e.g. `loanbook` or `loans` is meaningful for more people than `lbk`). You don't have to type long names in full -- use auto-completion.
+
+<img src=https://i.imgur.com/jiCNF8e.png height=150/>
+
+* A help file including:
+    * A generic title and description that applies to any similar dataset.
+    * `@name <generic>_description` (e.g. `loanbook_description`).
+    * `@seealso data_dictionary`.
+    * `@family` linking to similar datasets.
+    * `@examples` showing the definitions of the generic dataset columns.
+
+```{r loanbook-description, echo=FALSE, comment=""}
+show_file_contents <- function(path) {
+  
+  dir_file <- glue::glue("R/{fs::path_file(path)}")
+  cat("#", dir_file, "\n\n")
+  cat(readLines(path), sep = "\n")
+}
+
+loanbook_description <- "../../r2dii.dataraw/R/loanbook_description.R"
+show_file_contents(loanbook_description)
+```
+
+You need `NULL` to keep roxygen2 happy -- because this helpfile is associated to no object.
+
+### Documenting specific datasets
+
+Specific datasets (e.g. `loanbook`) should have these components:
+
+* A name like so: `<generic>_<details>`:
+
+    * `<generic>`: Identical to the `<generic>` component in `<generic>_description` (see [Documenting generic datasets]).
+
+    * `<details>`: A single string indicating the most prominent characteristic of the specific dataset.
+
+For example, if your data is a kind of loanbook dataset, and it is a fake one for examples and tests, then a good name for it would be `loanbook_fake`. This format works well with auto-completion.
+
+<img src="https://i.imgur.com/j2QmmKE.png" height=150 />
+
+* A help file including:
+    * A title and description that applies to the specific dataset.
+    * `@seealso data_dictionary`.
+    * `@family` linking to similar datasets if any.
+    * `@examples` giving an overview of the dataset.
+
+```{r fake-loanbook, comment="", echo=FALSE}
+fake_loanbook <- "../../r2dii.dataraw/R/fake_loanbook.R"
+show_file_contents(fake_loanbook)
+```
+
