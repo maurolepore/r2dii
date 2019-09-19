@@ -16,8 +16,8 @@ License: GPL-3 + file LICENSE
 URL: https://github.com/2DegreesInvesting/r2dii
 BugReports: https://github.com/2DegreesInvesting/r2dii/issues
 Depends: 
+    r2dii.dataraw,
     r2dii.dataprep,
-    r2dii.dataraw
 Suggests: 
     rmarkdown
 Remotes: 
