@@ -7,8 +7,6 @@ cache: packages
 matrix:
   include:
   - r: release
-    before_cache: Rscript -e 'remotes::install_github("r2dii.dataraw")'
-    before_cache: Rscript -e 'remotes::install_github("r2dii.dataprep")'
     before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
     deploy:
       provider: script
