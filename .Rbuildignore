@@ -4,3 +4,7 @@
 ^README\.Rmd$
 ^vignettes$
 ^vignettes/articles$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.travis\.yml$
