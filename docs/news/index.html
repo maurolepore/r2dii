@@ -135,8 +135,11 @@
 <h1 class="page-header">
 <a href="#r2diidataraw-00190002019-06-212019-08-07" class="anchor"></a>r2dii.dataraw 0.0.1.9000.2019-06-21.2019-08-07</h1>
 <ul>
+<li><p>r2dii.dataraw no longer stores snapshots, it only creates them. This make the responsability of the package clearef, and the installation lighter.</p></li>
+<li><p><code>path_snapshot()</code> was removed. It now useless, as we no longer store snapshots.</p></li>
+<li><p>Examples are now documented in the r2dii package.</p></li>
 <li><p>New dataset <code>data_dictionary</code> (<a href='https://github.com/2DegreesInvesting/r2dii/issues/21'>#21</a>, thanks <a href='https://github.com/jhoff-2dii'>@jhoff-2dii</a>).</p></li>
-<li><p>New dataset <code>fake_loanbook</code>.</p></li>
+<li><p>New dataset <code>loanbook_fake</code>.</p></li>
 <li><p>The option <code>r2dii.dataraw.config</code> is now called <code>r2dii.dataraw_config</code>, with underscore "_“, to avoid dots”." as much as possible (<a href="https://style.tidyverse.org/files.html#names">tidyverse style guide</a>).</p></li>
 <li><p><code><a href="../reference/default_config.html">example_config()</a></code> gains <code>path</code> to choose a specific configuration file. Called with no argument, it shows available configuration files.</p></li>
 <li><p>New <code><a href="../reference/LoanMarket.html">LoanMarket()</a></code> (<a href='https://github.com/2DegreesInvesting/r2dii/issues/17'>#17</a>).</p></li>

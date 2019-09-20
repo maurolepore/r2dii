@@ -42,12 +42,22 @@ Generic datasets (e.g. `loanbook`) should have these components:
 #' library(dplyr)
 #'
 #' data_dictionary %>%
-#'   filter(dataset == "loanbook_fake") %>%
-#'   select(-1)
+#'   filter(dataset == "loanbook")
 NULL
 ```
 
-The helpfile of generic objects is associated to no object in particular, so you need `NULL` for the documentation process to work.
+(The helpfile of generic objects is associated to no object in particular, so you need `NULL` for the documentation process to work.)
+
+* Rows in `data_dictionary` defining the each column of the generic dataset.
+
+```{r}
+library(dplyr)
+library(r2dii)
+
+generic_dataset <- "loanbook"
+data_dictionary %>% 
+  filter(dataset == generic_dataset)
+```
 
 ### Documenting specific datasets
 
@@ -83,5 +93,3 @@ For example, if your data is a kind of loanbook dataset, and it is a fake one fo
 #' loanbook_fake
 "loanbook_fake"
 ```
-
-

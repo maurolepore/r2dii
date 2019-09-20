@@ -44,12 +44,16 @@ reference:
     contents:
     - has_concept("functions to deal with configuration files")
 
+  - title: Documentation for generic datasets
+    contents:
+    - loanbook_description
+
   - title: Exported datasets
     desc: >
       These datasets are directly accessible when you attach the package.
     contents:
     - data_dictionary
-    - fake_loanbook
+    - loanbook_fake
     - has_concept("exported datasets")
     - has_concept("exported datasets to remove or outsource to data store")
 

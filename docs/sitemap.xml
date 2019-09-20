@@ -64,9 +64,6 @@
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/EQ_OG.html</loc>
   </url>
   <url>
-    <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/fake_loanbook.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/FIN.DATA.html</loc>
   </url>
   <url>
@@ -94,6 +91,9 @@
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/loanbook_description.html</loc>
   </url>
   <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/loanbook_fake.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/LoanMarket.html</loc>
   </url>
   <url>
@@ -101,9 +101,6 @@
   </url>
   <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/MASTER.DATA.PATH.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/path_snapshot.html</loc>
   </url>
   <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.dataraw//reference/PHYSICAL.RISK.CB.html</loc>

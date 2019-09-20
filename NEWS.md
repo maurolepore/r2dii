@@ -1,8 +1,14 @@
 # r2dii.dataraw 0.0.1.9000.2019-06-21.2019-08-07
 
+* r2dii.dataraw no longer stores snapshots, it only creates them. This make the responsability of the package clearef, and the installation lighter.
+
+* `path_snapshot()` was removed. It now useless, as we no longer store snapshots.
+
+* Examples are now documented in the r2dii package.
+
 * New dataset `data_dictionary` (#21, thanks @jhoff-2dii).
 
-* New dataset `fake_loanbook`.
+* New dataset `loanbook_fake`.
 
 * The option `r2dii.dataraw.config` is now called `r2dii.dataraw_config`, with underscore "_", to avoid dots "." as much as possible ([tidyverse style guide](https://style.tidyverse.org/files.html#names)).
 

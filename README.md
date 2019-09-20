@@ -51,8 +51,8 @@ Attaching r2dii automatically attaches other r2dii packages.
 
 ``` r
 library(r2dii)
-#> Loading required package: r2dii.dataprep
 #> Loading required package: r2dii.dataraw
+#> Loading required package: r2dii.dataprep
 ```
 
 ### Creating snapshots
@@ -159,8 +159,8 @@ custom_config %>%
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/DebtMarketClimate.csv.gz'.
 ```
 
   - `options(r2dii.dataraw_config = <custom_config>)` does the same but
@@ -173,8 +173,8 @@ restore <- options(r2dii.dataraw_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/DebtMarketClimate.csv.gz'.
 get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"
 
@@ -183,85 +183,4 @@ get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"
 ```
 
-See also:
-
-  - `?edit_config()` to edit the default configuration file.
-  - `?set_version()` to set a new version once you created a meaningful
-    data snapshot; then commit, push to GitHub and create a [GitHub
-    release](https://help.github.com/en/articles/creating-releases).
-
-### Using snapshots
-
-Install the snapshot associated to the latest commit on the master
-branch of the r2dii.dataraw package.
-
-``` r
-devtools::install_github("2DegreesInvesting/r2dii.dataraw")
-```
-
-Install a specific release with something of the form:
-
-``` r
-devtools::install_github("2DegreesInvesting/r2dii.dataraw@major.minor.dev.yy-mm-dd.yy-mm-dd")
-```
-
-See:
-
-  - [available GitHub
-    releases](https://github.com/2DegreesInvesting/r2dii.dataraw/releases).
-  - available local snapshots:
-
-<!-- end list -->
-
-``` r
-path_snapshot()
-#>  [1] "ALD.BV.csv.gz"             "ALD.CB.csv.gz"            
-#>  [3] "ALD.CC.csv.gz"             "ALD.Company.csv.gz"       
-#>  [5] "ALD.EQ.csv.gz"             "ALD.SPV.csv.gz"           
-#>  [7] "BALANCE.SHEET.DATA.csv.gz" "BENCH.REGIONS.csv"        
-#>  [9] "BicsSectorBridge.csv"      "CB_OG.csv.gz"             
-#> [11] "config.yml"                "config_2019Q2.yml"        
-#> [13] "DebtMarket.csv.gz"         "DebtMarketClimate.csv.gz" 
-#> [15] "EQ_OG.csv.gz"              "EQMarket.Size.csv"        
-#> [17] "FIN.DATA.csv.gz"           "Fund.Data.csv.gz"         
-#> [19] "FundsTrusts.csv.gz"        "GROUPS.GOVT.txt"          
-#> [21] "INDEX.REGIONS.csv"         "Indices.csv"              
-#> [23] "LoanMarket.csv.gz"         "LoanMarketClimate.csv.gz" 
-#> [25] "PHYSICAL.RISK.CB.csv.gz"   "PHYSICAL.RISK.EQ.csv.gz"  
-#> [27] "Receipts.csv"              "RevenueSplit.csv"         
-#> [29] "SCEN.csv"                  "SCENLong.csv.gz"          
-#> [31] "SEC.TYPE.BONDS.txt"        "sector.bridge.csv"        
-#> [33] "SectorBridge.csv"          "TYPE.BONDS.txt"           
-#> [35] "TYPE.EQUITY.txt"           "TYPE.OTHERS.txt"          
-#> [37] "TYPE.RECEIPTS.csv"
-```
-
-Read specific snapshots:
-
-``` r
-path_snapshot("ALD.BV.csv.gz") %>% 
-  readr::read_csv()
-#> # A tibble: 119,821 x 11
-#>    ALD.ID ALD.Location DomicileCountry Sector Technology  Year
-#>     <dbl> <chr>        <chr>           <chr>  <chr>      <dbl>
-#>  1 1.24e7 US           DE              Power  Renewable~  2013
-#>  2 1.24e7 US           DE              Power  Renewable~  2014
-#>  3 1.24e7 US           DE              Power  Renewable~  2015
-#>  4 1.24e7 US           DE              Power  Renewable~  2016
-#>  5 1.24e7 US           DE              Power  Renewable~  2017
-#>  6 1.24e7 US           DE              Power  Renewable~  2018
-#>  7 1.24e7 US           DE              Power  Renewable~  2019
-#>  8 1.24e7 US           DE              Power  Renewable~  2020
-#>  9 1.24e7 US           DE              Power  Renewable~  2021
-#> 10 1.24e7 US           DE              Power  Renewable~  2022
-#> # ... with 119,811 more rows, and 5 more variables: ALD.Production <dbl>,
-#> #   ALD.ProductionUnits <chr>, ALD.EmissionsFactor <dbl>,
-#> #   ALD.link.Level <chr>, CompanyName <chr>
-
-path_snapshot("TYPE.BONDS.txt") %>% 
-  readr::read_lines()
-#> [1] "Corporate Bonds"                   "Corporate inflation linked Bonds" 
-#> [3] "Convertible Bonds"                 "Government inflation linked Bonds"
-#> [5] "Government Non-Mort. Debt"         "Mortgage Debt"                    
-#> [7] "Other Collateralized Debt"
-```
+See also `?edit_config()` to edit the default configuration file.

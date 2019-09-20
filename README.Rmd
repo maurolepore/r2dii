@@ -104,40 +104,4 @@ options(restore)
 get_config()
 ```
 
-See also:
-
-* `?edit_config()` to edit the default configuration file.
-* `?set_version()` to set a new version once you created a meaningful data snapshot; then commit, push to GitHub and create a [GitHub release](https://help.github.com/en/articles/creating-releases).
-
-### Using snapshots
-
-Install the snapshot associated to the latest commit on the master branch of the r2dii.dataraw package.
-
-```R
-devtools::install_github("2DegreesInvesting/r2dii.dataraw")
-```
-
-Install a specific release with something of the form:
-
-```R
-devtools::install_github("2DegreesInvesting/r2dii.dataraw@major.minor.dev.yy-mm-dd.yy-mm-dd")
-```
-
-See:
-
-* [available GitHub releases](https://github.com/2DegreesInvesting/r2dii.dataraw/releases).
-* available local snapshots:
-
-```{r}
-path_snapshot()
-```
-
-Read specific snapshots:
-
-```{r, message=FALSE}
-path_snapshot("ALD.BV.csv.gz") %>% 
-  readr::read_csv()
-
-path_snapshot("TYPE.BONDS.txt") %>% 
-  readr::read_lines()
-```
+See also `?edit_config()` to edit the default configuration file.
