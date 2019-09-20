@@ -1,5 +1,5 @@
 ---
-title: "r2dii.dataraw"
+title: "Get started"
 ---
 
 ```{r, include = FALSE}
@@ -182,7 +182,8 @@ path
 
 `readr::read_csv()` and `vroom::vroom()`, for example, read snapshots which extension is .csv or .csv.gz.
 
-```{r}
+```r
+# Not showing this for privacy
 readr::read_csv(path)
 ```
 
@@ -305,13 +306,14 @@ get_a_value(file = config_file)
 
 ## Datasets
 
-A family of functions allow you to read local datasets from your local 2dii Dropbox-folder.
+A family of functions allow you to read local datasets from your local 2dii Dropbox-folder, e.g.:
 
-```{r}
+```r
+# Not showing this for privacy
 ALD.BV()
 ```
 
-A family of datasets become directly available when you attach the r2dii.dataraw package.
+A family of datasets become directly available when you attach the r2dii.dataraw package, e.g.:
 
 ```{r}
 INDEX.REGIONS
@@ -324,8 +326,4 @@ Some datasets are sensitive to the configuration file, which you can always chec
 ```{r}
 get_config()
 ```
-
-## Integration
-
-This version of the r2dii.dataraw package could be merged into the main r2dii.dataraw repository. It should cause (almost) no merge conflict. Old behavior should not change.
 
