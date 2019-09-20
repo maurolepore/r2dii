@@ -1,5 +1,5 @@
 ---
-title: "Documenting datasets"
+title: "Documenting r2dii datasets"
 author: "Mauro Lepore"
 ---
 
@@ -10,11 +10,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This article provides guidelines to document r2dii datasets. This should make it easier to understand existing datasets and to add new ones.
-
-This guidelines are not written in stone. Feel free to [propose changes](https://github.com/2DegreesInvesting/r2dii/issues/new). And they are aspirational, so not all r2dii datasets may follow this guidelines.
-
-For details about the documenting framework see the [roxygen2](https://roxygen2.r-lib.org) package.
+This article provides guidelines to document r2dii datasets, which should make it easier to understand existing datasets and to add new ones. The guidelines are aspirational, so not all r2dii datasets may follow this guidelines. Feel free to [propose changes](https://github.com/2DegreesInvesting/r2dii/issues/new).
 
 ### Documenting generic datasets
 
