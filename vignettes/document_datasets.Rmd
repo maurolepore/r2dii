@@ -1,5 +1,6 @@
 ---
 title: "Documenting datasets"
+author: "Mauro Lepore"
 ---
 
 ```{r, include = FALSE}
@@ -9,9 +10,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Documenting datasets
+This article provides guidelines to document r2dii datasets. This should make it easier to understand existing datasets and to add new ones.
 
-The goal of this article is to provide guidelines to document r2dii datasets. This should make it easier to understand existing datasets and to add new ones.
+This guidelines are not written in stone. Feel free to [propose changes](https://github.com/2DegreesInvesting/r2dii/issues/new). And they are aspirational, so not all r2dii datasets may follow this guidelines.
+
+For details about the documenting framework see the [roxygen2](https://roxygen2.r-lib.org) package.
 
 ### Documenting generic datasets
 
@@ -28,19 +31,27 @@ Generic datasets (e.g. `loanbook`) should have these components:
     * `@family` linking to similar datasets.
     * `@examples` showing the definitions of the generic dataset columns.
 
-```{r loanbook-description, echo=FALSE, comment=""}
-show_file_contents <- function(path) {
-  
-  dir_file <- glue::glue("R/{fs::path_file(path)}")
-  cat("#", dir_file, "\n\n")
-  cat(readLines(path), sep = "\n")
-}
+```r
+# R/loanbook_description.R 
 
-loanbook_description <- "../../r2dii.dataraw/R/loanbook_description.R"
-show_file_contents(loanbook_description)
+#' Description of a generic loanbook dataset
+#'
+#' Data on loans and borrowers. The information is usually owned by banks and
+#' extreemly private.
+#'
+#' @name loanbook_description
+#' @seealso data_dictionary
+#' @family bank datasets
+#' @examples
+#' library(dplyr)
+#'
+#' data_dictionary %>%
+#'   filter(dataset == "fake_loanbook") %>%
+#'   select(-1)
+NULL
 ```
 
-You need `NULL` to keep roxygen2 happy -- because this helpfile is associated to no object.
+The helpfile of generic objects is associated to no object in particular, so you need `NULL` for the documentation process to work.
 
 ### Documenting specific datasets
 
@@ -62,8 +73,19 @@ For example, if your data is a kind of loanbook dataset, and it is a fake one fo
     * `@family` linking to similar datasets if any.
     * `@examples` giving an overview of the dataset.
 
-```{r fake-loanbook, comment="", echo=FALSE}
-fake_loanbook <- "../../r2dii.dataraw/R/fake_loanbook.R"
-show_file_contents(fake_loanbook)
+```r
+# R/fake_loanbook.R 
+
+#' A fake loanbook dataset
+#'
+#' A dataframe containing fake loanbook data. This is a public dataset useful
+#' for examples and tests.
+#'
+#' @seealso data_dictionary
+#' @family bank datasets
+#' @examples
+#' fake_loanbook
+"fake_loanbook"
 ```
+
 
