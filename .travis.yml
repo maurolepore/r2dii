@@ -3,13 +3,3 @@
 language: R
 sudo: false
 cache: packages
-
-matrix:
-  include:
-  - r: release
-    before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
-    deploy:
-      provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github(examples = FALSE)'
-      skip_cleanup: true
-
