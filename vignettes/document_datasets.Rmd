@@ -42,7 +42,7 @@ Generic datasets (e.g. `loanbook`) should have these components:
 #' library(dplyr)
 #'
 #' data_dictionary %>%
-#'   filter(dataset == "fake_loanbook") %>%
+#'   filter(dataset == "loanbook_fake") %>%
 #'   select(-1)
 NULL
 ```
@@ -70,7 +70,7 @@ For example, if your data is a kind of loanbook dataset, and it is a fake one fo
     * `@examples` giving an overview of the dataset.
 
 ```r
-# R/fake_loanbook.R 
+# R/loanbook_fake.R 
 
 #' A fake loanbook dataset
 #'
@@ -80,8 +80,8 @@ For example, if your data is a kind of loanbook dataset, and it is a fake one fo
 #' @seealso data_dictionary
 #' @family bank datasets
 #' @examples
-#' fake_loanbook
-"fake_loanbook"
+#' loanbook_fake
+"loanbook_fake"
 ```
 
 
