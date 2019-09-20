@@ -19,20 +19,31 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
 <!-- badges: end -->
 
-The goal of the r2dii package is to help you install and use multiple r2dii packages at once.
+[2 `r r2dii.dataraw::degrees()` Investing Initiative](https://2degrees-investing.org/) (2dii) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the r2dii (meta) package. The r2dii package is the only package most users need to know about. Contact us if you need more details.
+
+Features:
+
+* Functions to access raw or lightly-prepared data. This allows you to access "live" data from 2dii's dropbox folder and to take a snapshot of it.
 
 ## Installation
 
-Install the development version of r2dii with something like this:
+To minimize installation errors, ensure your R environment is as follows:
+
+* R version is recent.
+* All packages are updated (run `update.packages()`; maybe use `ask = FALSE`).
+* No other R session is running.
+* Current R session is clean (click *Session \> Restart R*).
+
+Install the development version of r2dii with:
 
 ```r
 # install.packages("devtools")
-
-# To install from a private repo, see ?usethis::browse_github_token()
-devtools::install_github("2DegreesInvesting/r2dii", auth_token = "abc")
+devtools::install_github("2DegreesInvesting/r2dii")
 ```
 
-## Example
+## Examples
+
+These examples provide a high level overview of the main features. For more details see [this article](https://2degreesinvesting.github.io/r2dii/articles/r2dii.dataraw.html).
 
 Attaching r2dii automatically attaches other r2dii packages.
 
@@ -40,3 +51,93 @@ Attaching r2dii automatically attaches other r2dii packages.
 library(r2dii)
 ```
 
+### Creating snapshots
+
+`take_snapshot()` snapshots all possible datasets, using a default configuration file, a default destination directory, and does not overwrite existing snapshots.
+
+```{r}
+take_snapshot()
+```
+
+Use:
+
+* `datasets` to snapshot specific datasets.
+* `overwrite = TRUE` to overwrite existing snapshots.
+
+```{r}
+datasets <- c("RevenueSplit", "EQMarket.Size")
+
+datasets %>% 
+  take_snapshot(overwrite = TRUE)
+```
+
+Use `destdir` to customize the destination directory.
+
+```{r}
+datasets %>% 
+  take_snapshot(overwrite = TRUE)
+```
+
+Use `config` to provide a custom configuration file to `take_snapshot()`.
+
+```{r}
+custom_config <- example_config("config-toy.yml")
+custom_config
+
+custom_config %>% 
+  show_config()
+
+"DebtMarketClimate" %>% 
+  take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
+```
+
+* `options(r2dii.dataraw_config = <custom_config>)` does the same but affects your R session globally.
+
+```{r}
+restore <- options(r2dii.dataraw_config = custom_config)
+
+"DebtMarketClimate" %>% 
+  take_snapshot(destdir = tempdir(), overwrite = TRUE)
+get_config()
+
+options(restore)
+get_config()
+```
+
+See also:
+
+* `?edit_config()` to edit the default configuration file.
+* `?set_version()` to set a new version once you created a meaningful data snapshot; then commit, push to GitHub and create a [GitHub release](https://help.github.com/en/articles/creating-releases).
+
+### Using snapshots
+
+Install the snapshot associated to the latest commit on the master branch of the r2dii.dataraw package.
+
+```R
+devtools::install_github("2DegreesInvesting/r2dii.dataraw")
+```
+
+Install a specific release with something of the form:
+
+```R
+devtools::install_github("2DegreesInvesting/r2dii.dataraw@major.minor.dev.yy-mm-dd.yy-mm-dd")
+```
+
+See:
+
+* [available GitHub releases](https://github.com/2DegreesInvesting/r2dii.dataraw/releases).
+* available local snapshots:
+
+```{r}
+path_snapshot()
+```
+
+Read specific snapshots:
+
+```{r, message=FALSE}
+path_snapshot("ALD.BV.csv.gz") %>% 
+  readr::read_csv()
+
+path_snapshot("TYPE.BONDS.txt") %>% 
+  readr::read_lines()
+```

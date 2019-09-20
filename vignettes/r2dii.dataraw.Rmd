@@ -1,0 +1,331 @@
+---
+title: "r2dii.dataraw"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This article details most features.
+
+As usual, start using the r2dii.dataraw package with:
+
+```{r}
+library(r2dii.dataraw)
+```
+
+## Creating data snapshots
+
+`take_snapshot()` takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots.
+
+```{r}
+take_snapshot()
+```
+
+You can snapshot specific datasets. 
+
+`possible_snapshots()` shows you all possible snapshots.
+
+```{r}
+possible_snapshots()
+```
+
+`overwrite = TRUE` allows you to overwrite existing snapshots.
+
+```{r}
+specific_datasets <- c("RevenueSplit", "EQMarket.Size")
+
+specific_datasets %>% 
+  take_snapshot(overwrite = TRUE)
+```
+
+By default the snapshots are stored in a special directory of the package. (Files in this special directory automatically install in your system when you install the package).
+
+`destdir` allows you to customize the destination directory.
+
+```{r}
+a_directory <- tempdir()
+
+specific_datasets %>% 
+  take_snapshot(destdir = a_directory)
+```
+
+By default the snapshots are created with a configuration file stored in the same directory where the package is installed.
+
+```{r}
+default_config()
+```
+
+`edit_config()` allows you to edit the default configuration file.
+
+```r
+if (interactive()) edit_config()
+```
+
+If you are on an interactive session a file should open that looks like this:
+
+```{r, message=FALSE}
+default_config() %>% 
+  show_config(n_max = 10)
+```
+
+(I showed only `n_max` lines to save space.)
+
+You can use a custom configuration file.
+
+```{r}
+custom_config <- r2dii.dataraw::example_config("config-toy.yml")
+custom_config
+
+custom_config %>% 
+  show_config()
+```
+
+`config` allows you to use a custom configuration file with `take_snapshot()`.
+
+```{r}
+specific_datasets %>% 
+  take_snapshot(destdir = a_directory, config = custom_config)
+```
+
+`options("r2dii.dataraw_config")` allows you to provide a custom configuration file to be used globally.
+
+```{r}
+getOption("r2dii.dataraw_config")
+
+# Set new options and store old options to restore them later
+restore_options <- options(r2dii.dataraw_config = custom_config)
+
+getOption("r2dii.dataraw_config")
+```
+
+`take_snapshot()` will now use the custom configuration file.
+
+```{r}
+specific_datasets %>% 
+  take_snapshot(destdir = a_directory)
+```
+
+`options()` affect your R session globally; you set this option once an many other functions can use it.
+
+```{r}
+get_config()
+
+if (interactive()) edit_config()
+
+# You'll see something like this
+show_config(get_config())
+```
+
+Restore the original options to go back to using the custom configuration file.
+
+```{r}
+options(restore_options)
+
+specific_datasets %>% 
+  take_snapshot(destdir = a_directory)
+```
+
+If you created a meaningful snapshot of the data you should probably increment the version number of the r2dii.dataraw package.
+
+`set_version()` helps you to set a new version.
+
+```{r}
+if (interactive()) set_version()
+```
+
+If you are in an interactive session (I'm not) you should see something like this:
+
+<img src="https://i.imgur.com/w5abQKa.png" align="center" height=200 />
+
+--
+
+Next you should push your commit to GitHub and create a [GitHub release](https://help.github.com/en/articles/creating-releases).
+
+### Using data snapshots
+
+When you install the r2dii.dataraw package from GitHub you get the latest snapshot.
+
+For example, this installs the latest version:
+
+```R
+devtools::install_github("2DegreesInvesting/r2dii.dataraw")
+```
+
+`@version` allows you to install a specific version and its associated snapshots with something of the form:
+
+```R
+devtools::install_github("2DegreesInvesting/r2dii.dataraw@major.minor.dev.yy-mm-dd.yy-mm-dd")
+```
+
+<https://github.com/2DegreesInvesting/r2dii.dataraw/releases> shows the available releases on GitHub (and their associated snapshots).
+
+You can also access the latest local snapshots.
+
+`path_snapshot()` shows the available data snapshots.
+
+```{r}
+path_snapshot()
+```
+
+(Small datasets (< 512 K) are uncompressed because GitHub can render them nicely. Larger datasets (> 512 K) are compressed to save space.)
+
+`path_snapshot()` with the name of a snapshot creates the path to it.
+
+```{r}
+path <- path_snapshot("ALD.BV.csv.gz")
+path
+```
+
+`readr::read_csv()` and `vroom::vroom()`, for example, read snapshots which extension is .csv or .csv.gz.
+
+```{r}
+readr::read_csv(path)
+```
+
+`readr::read_lines()`, for example, reads snapshots which extension is `.txt`.
+
+```{r}
+readr::read_lines(
+  path_snapshot("TYPE.BONDS.txt")
+)
+```
+
+## Documentation
+
+You can access the high level documentation of the package with `?r2dii.dataraw`. At the bottom you may click _Index_ to access the help files of all topics. As usual, you can access the help file of any topic with `?topic`.
+
+A good way to learn about all features is to explore the "r2dii.dataraw" tab of the private package-website:
+
+```r
+if (interactive()) browse_private_site()
+```
+
+Please help me improve the documentation via pull requests.
+
+## Create paths
+
+A family of functions create robust paths.
+
+```{r}
+DROPBOX.PATH()
+```
+
+For this to work, you must have the Dropbox folder of 2dii directly under home (the default location).
+
+```{r}
+fs::dir_ls(fs::path_home(), regexp = "Dropbox")
+```
+
+## Configuration file
+
+A family of functions help you to deal with the configuration file.
+
+`edit_config()` opens the default configuration file so you can edit it.
+
+```r
+if (interactive()) edit_config()
+```
+
+(I'm not in an interactive session so the chunk above won't run.)
+
+`get_config()` outputs a path to a configuration file. By default it outputs the  path to the default configuration file -- stored in the r2dii.dataraw package.
+
+```{r}
+get_config()
+```
+
+`show_config()` shows a configuration file.
+
+```{r, comment=""}
+show_config(get_config(), n_max = 10)
+```
+
+You can change the default configuration file globally via `options()`.
+
+```{r, comment=""}
+your_config <- example_config("config-toy.yml")
+restore <- options(r2dii.dataraw_config = your_config)
+
+get_config()
+
+show_config(get_config())
+
+options(restore)
+```
+
+## Access configuration parameters and create configuration-sensitive paths
+
+A family of functions are sensitive to the configuration file you use. This includes all functions to access configuration parameters, and some of the functions to create paths.
+
+```{r}
+# Using the default configuration file
+getOption("r2dii.dataraw_config")
+FINANCIAL.TIMESTAMP()
+FIN.DATA.PATH()
+
+# Using your configuration file
+your_config <- example_config("config-toy.yml")
+restore <- options(r2dii.dataraw_config = your_config)
+FINANCIAL.TIMESTAMP()
+FIN.DATA.PATH()
+
+options(restore)
+```
+
+## Extending functions to access configuration parameters
+
+Eventually you will likely need to access new configuration parameters. How would you expand this family of functions?
+
+Use `get_param()` to create new functions to access configuration parameters.
+
+```{r, comment=""}
+# Create a `get_a_value()` function to get `a_value` from `a_field`
+get_a_value <- get_param("a_field")
+
+# Create an example configuration file
+config <- glue::glue("
+   default:
+     a_field: a_value
+ ")
+
+show_config(config)
+```
+
+```{r}
+# Write the config file to a temporary file
+config_file <- tempfile()
+readr::write_lines(config, config_file)
+
+get_a_value(file = config_file)
+```
+
+## Datasets
+
+A family of functions allow you to read local datasets from your local 2dii Dropbox-folder.
+
+```{r}
+ALD.BV()
+```
+
+A family of datasets become directly available when you attach the r2dii.dataraw package.
+
+```{r}
+INDEX.REGIONS
+
+GROUPS.GOVT
+```
+
+Some datasets are sensitive to the configuration file, which you can always check with `get_config()`.
+
+```{r}
+get_config()
+```
+
+## Integration
+
+This version of the r2dii.dataraw package could be merged into the main r2dii.dataraw repository. It should cause (almost) no merge conflict. Old behavior should not change.
+
