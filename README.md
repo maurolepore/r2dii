@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <img src="https://i.imgur.com/3jITMq8.png" align="right" height=40 /> Use multiple r2dii packages at once
+# <img src="https://i.imgur.com/3jITMq8.png" align="right" height=40 /> Install and use r2dii packages
 
 <!-- badges: start -->
 
@@ -45,8 +45,7 @@ devtools::install_github("2DegreesInvesting/r2dii")
 ## Examples
 
 These examples provide a high level overview of the main features. For
-more details see [this
-article](https://2degreesinvesting.github.io/r2dii/articles/r2dii.dataraw.html).
+more details see [Get started](articles/r2dii.html).
 
 Attaching r2dii automatically attaches other r2dii packages.
 
@@ -160,8 +159,8 @@ custom_config %>%
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpMnVb8j/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpMnVb8j/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/DebtMarketClimate.csv.gz'.
 ```
 
   - `options(r2dii.dataraw_config = <custom_config>)` does the same but
@@ -174,8 +173,8 @@ restore <- options(r2dii.dataraw_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpMnVb8j/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpMnVb8j/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwTaNmr/DebtMarketClimate.csv.gz'.
 get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"
 
