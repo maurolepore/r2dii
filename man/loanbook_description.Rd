@@ -5,7 +5,7 @@
 \title{Description of a generic loanbook dataset}
 \description{
 Data on loans and borrowers. The information is usually owned by banks and
-extreemly private.
+private.
 }
 \examples{
 library(dplyr)
