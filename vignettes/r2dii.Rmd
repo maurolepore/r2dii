@@ -19,7 +19,7 @@ library(r2dii.dataraw)
 
 ## Creating data snapshots
 
-`take_snapshot()` takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots.
+`take_snapshot()` takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots, and warns if it fails to take a snapshot of expected datasets.
 
 ```{r}
 take_snapshot()
