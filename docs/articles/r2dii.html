@@ -57,7 +57,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/document_datasets.html">Documenting datasets</a>
+      <a href="../articles/document_datasets.html">Documenting r2dii datasets</a>
     </li>
   </ul>
 </li>
@@ -107,7 +107,7 @@
 <div id="creating-data-snapshots" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-data-snapshots" class="anchor"></a>Creating data snapshots</h2>
-<p><code><a href="../reference/take_snapshot.html">take_snapshot()</a></code> takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots.</p>
+<p><code><a href="../reference/take_snapshot.html">take_snapshot()</a></code> takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots, and warns if it fails to take a snapshot of expected datasets.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>()</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt; Skipping existing snapshot of 'config.yml'.</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; Skipping existing snapshot of `ALD.BV`.</span></a>
@@ -174,9 +174,9 @@
 <a class="sourceLine" id="cb5-2" title="2"></a>
 <a class="sourceLine" id="cb5-3" title="3">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; Wrote 'config.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpQHPRwy/config.yml'.</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpQHPRwy/RevenueSplit.csv'.</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpQHPRwy/EQMarket.Size.csv'.</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; Wrote 'config.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmpwpl1zT/config.yml'.</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmpwpl1zT/RevenueSplit.csv'.</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmpwpl1zT/EQMarket.Size.csv'.</span></a></code></pre></div>
 <p>By default the snapshots are created with a configuration file stored in the same directory where the package is installed.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="../reference/default_config.html">default_config</a></span>()</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"</span></a></code></pre></div>
@@ -216,7 +216,7 @@
 <p><code>config</code> allows you to use a custom configuration file with <code><a href="../reference/take_snapshot.html">take_snapshot()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory, <span class="dt">config =</span> custom_config)</a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpQHPRwy/config-toy.yml'.</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmpwpl1zT/config-toy.yml'.</span></a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; Skipping existing snapshot of `RevenueSplit`.</span></a>
 <a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; Skipping existing snapshot of `EQMarket.Size`.</span></a></code></pre></div>
 <p><code><a href="https://rdrr.io/r/base/options.html">options("r2dii.dataraw_config")</a></code> allows you to provide a custom configuration file to be used globally.</p>
