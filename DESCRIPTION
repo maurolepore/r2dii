@@ -40,6 +40,8 @@ Depends:
     r2dii.dataprep,
     r2dii.dataraw
 Suggests: 
+    DT,
+    pkgdown,
     rmarkdown
 Remotes: 
     2degreesinvesting/r2dii.dataprep,
