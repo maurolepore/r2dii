@@ -6,3 +6,14 @@ sudo: false
 cache: packages
 latex: false
 
+matrix:
+  include:
+  - r: release
+    before_cache:
+    - Rscript -e 'remotes::install_cran("pkgdown")'
+    - Rscript -e 'remotes::install_github("maurolepore/pkgdoc")'
+    deploy:
+      provider: script
+      script: Rscript -e 'pkgdown::deploy_site_github(examples = FALSE)'
+      skip_cleanup: true
+
