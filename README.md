@@ -42,7 +42,7 @@ Install the development version of r2dii with:
 devtools::install_github("2DegreesInvesting/r2dii")
 ```
 
-## Examples
+## Example
 
 These examples provide a high level overview of the main features. For
 more details see [Get started](articles/r2dii.html).
@@ -159,8 +159,8 @@ custom_config %>%
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/DebtMarketClimate.csv.gz'.
 ```
 
   - `options(r2dii.dataraw_config = <custom_config>)` does the same but
@@ -173,8 +173,8 @@ restore <- options(r2dii.dataraw_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpwbGIFL/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/DebtMarketClimate.csv.gz'.
 get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"
 

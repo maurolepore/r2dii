@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • r2dii</title>
+<title> • r2dii</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="" />
 
 
 
@@ -74,16 +74,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/r2dii.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/reference.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -97,8 +91,17 @@
     </li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Changelog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html">r2dii.darataw</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -109,7 +112,7 @@
   </a>
 </li>
 <li>
-  <a href="https://github.com/2DegreesInvesting/r2dii.dataraw/">
+  <a href="https://github.com/2DegreesInvesting/r2dii/">
     <span class="fa fa-github"></span>
      
   </a>
@@ -138,400 +141,13 @@
       <col class="title" />
     </colgroup>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-handle-dataset-snapshots" class="hasAnchor"><a href="#section-handle-dataset-snapshots" class="anchor"></a>Handle dataset snapshots</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="take_snapshot.html">take_snapshot()</a></code> </p>
-        </td>
-        <td><p>Snapshots datasets and the configuration file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="possible_snapshots.html">possible_snapshots()</a></code> </p>
-        </td>
-        <td><p>Datasets to snapshot</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-handle-the-configuration-file" class="hasAnchor"><a href="#section-handle-the-configuration-file" class="anchor"></a>Handle the configuration file</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="default_config.html">default_config()</a></code> <code><a href="default_config.html">example_config()</a></code> <code><a href="default_config.html">get_config()</a></code> </p>
-        </td>
-        <td><p>Create a path pointing to a configuration file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="edit_config.html">edit_config()</a></code> </p>
-        </td>
-        <td><p>Edit the default configuration file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="show_config.html">show_config()</a></code> </p>
-        </td>
-        <td><p>Show a configuration file</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-documentation-for-generic-datasets" class="hasAnchor"><a href="#section-documentation-for-generic-datasets" class="anchor"></a>Documentation for generic datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="loanbook_description.html">loanbook_description</a></code> </p>
-        </td>
-        <td><p>Description of a generic loanbook dataset</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-exported-datasets" class="hasAnchor"><a href="#section-exported-datasets" class="anchor"></a>Exported datasets</h2>
-          <p class="section-desc"><p>These datasets are directly accessible when you attach the package.</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="data_dictionary.html">data_dictionary</a></code> </p>
-        </td>
-        <td><p>Data dictionary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="loanbook_fake.html">loanbook_fake</a></code> </p>
-        </td>
-        <td><p>Fake loanbook</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="BENCH.REGIONS.html">BENCH.REGIONS</a></code> </p>
-        </td>
-        <td><p>Dataset to bridge from country to all existing bench regions it is in</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="INDEX.REGIONS.html">INDEX.REGIONS</a></code> </p>
-        </td>
-        <td><p>Dataset to identify the equity index regions based on the MSCI factsheets</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="BicsSectorBridge.html">BicsSectorBridge</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="GROUPS.GOVT.html">GROUPS.GOVT</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="RevenueSplit.html">RevenueSplit</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sector.bridge.html">sector.bridge</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="SectorBridge.html">SectorBridge</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="TYPE.EQUITY.html">TYPE.EQUITY</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="TYPE.OTHERS.html">TYPE.OTHERS</a></code> </p>
-        </td>
-        <td><p>Dataset that should probably be removed or outsourced to data store</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datastore-datasets" class="hasAnchor"><a href="#section-datastore-datasets" class="anchor"></a>Datastore datasets</h2>
-          <p class="section-desc"><p>These datasets are accessible via functions that get them from a local copy of 2dii’s Dropbox folder.</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ALD.BV.html">ALD.BV()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ALD.CB.html">ALD.CB()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ALD.CC.html">ALD.CC()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ALD.Company.html">ALD.Company()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ALD.EQ.html">ALD.EQ()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ALD.SPV.html">ALD.SPV()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="BALANCE.SHEET.DATA.html">BALANCE.SHEET.DATA()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="CB_OG.html">CB_OG()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="EQ_OG.html">EQ_OG()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="FIN.DATA.html">FIN.DATA()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="FundsTrusts.html">FundsTrusts()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Receipts.html">Receipts()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="SEC.TYPE.BONDS.html">SEC.TYPE.BONDS()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="TYPE.BONDS.html">TYPE.BONDS()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="TYPE.RECEIPTS.html">TYPE.RECEIPTS()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-other-datasets" class="hasAnchor"><a href="#section-other-datasets" class="anchor"></a>Other datasets</h2>
-          <p class="section-desc"><p>These datasets are accessible via functions that get them from a local copy of 2dii’s Dropbox folder.</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="DebtMarket.html">DebtMarket()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="DebtMarketClimate.html">DebtMarketClimate()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="EQMarket.Size.html">EQMarket.Size()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Fund.Data.html">Fund.Data()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Indices.html">Indices()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="LoanMarket.html">LoanMarket()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="LoanMarketClimate.html">LoanMarketClimate()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="PHYSICAL.RISK.CB.html">PHYSICAL.RISK.CB()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="PHYSICAL.RISK.EQ.html">PHYSICAL.RISK.EQ()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="SCEN.html">SCEN()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="SCENLong.html">SCENLong()</a></code> </p>
-        </td>
-        <td><p>Dataset</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-paths-pointing-to-dii-s-dropbox-folder" class="hasAnchor"><a href="#section-paths-pointing-to-dii-s-dropbox-folder" class="anchor"></a>Paths pointing to 2dii's dropbox-folder</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="MASTER.DATA.PATH.html">MASTER.DATA.PATH()</a></code> <code><a href="MASTER.DATA.PATH.html">FIN.DATA.PATH()</a></code> <code><a href="MASTER.DATA.PATH.html">CBMARKET.DATA.PATH()</a></code> <code><a href="MASTER.DATA.PATH.html">DATA.STORE.PATH()</a></code> <code><a href="MASTER.DATA.PATH.html">ANALYSIS.INPUTS.PATH()</a></code> </p>
-        </td>
-        <td><p>Create paths to specific 2dii directories, depending on a configuration file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="USER.NAME.html">USER.NAME()</a></code> <code><a href="USER.NAME.html">DROPBOX.PATH()</a></code> <code><a href="USER.NAME.html">GIT.PATH()</a></code> <code><a href="USER.NAME.html">WEBTOOL.PATH()</a></code> <code><a href="USER.NAME.html">COMPANY.PATH()</a></code> <code><a href="USER.NAME.html">dbox_port_00()</a></code> <code><a href="USER.NAME.html">SCENARIO.DATA.PATH()</a></code> <code><a href="USER.NAME.html">dbox_port2_10proj()</a></code> <code><a href="USER.NAME.html">EQMARKET.DATA.PATH()</a></code> <code><a href="USER.NAME.html">MARKET.DATA.PATH()</a></code> <code><a href="USER.NAME.html">INDEX.DATA.PATH()</a></code> <code><a href="USER.NAME.html">INDEX.RESULTS.DATA.PATH()</a></code> <code><a href="USER.NAME.html">FUND.DATA.PATH()</a></code> </p>
-        </td>
-        <td><p>Create paths to specific 2dii directories</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-access-configuration-parameters" class="hasAnchor"><a href="#section-access-configuration-parameters" class="anchor"></a>Access configuration parameters</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="get_param.html">get_param()</a></code> </p>
-        </td>
-        <td><p>Create functions to access configuration parameters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">timestamps_datastore_export()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">ALD.TIMESTAMP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">DATASTORE.TIMESTAMP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">DATAPREP.TIMESTAMP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">START.YEAR()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">TIME.HORIZON()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">RISK.YEAR()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">ADDITIONAL.YEAR()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">TECH.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">TECH.EXCLUDE()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">SECTOR.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">OTHER.SECTOR.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">SCENARIO.SOURCES.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">IEA.SCENARIO.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">WEB.REGION.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">SCENARIO.GEOGRAPHIES.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">EQUITY.MARKET.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">GLOBAL.AGGREGATE.SECTOR.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">GLOBAL.AGGREGATE.SCENARIO.SOURCES.LIST()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">CREATE.META.PORTFOLIO()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">META.INVESTOR.NAME()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">META.PORTFOLIO.NAME()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">HasBV()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">HasRISK()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">HasMAP()</a></code> <code><a href="FINANCIAL.TIMESTAMP.html">HasSB()</a></code> </p>
-        </td>
-        <td><p>Access parameters from a configuration file</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-miscellaneous" class="hasAnchor"><a href="#section-miscellaneous" class="anchor"></a>Miscellaneous</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="browse_private_site.html">browse_private_site()</a></code> </p>
-        </td>
-        <td><p>Browse private site</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="build_private_site.html">build_private_site()</a></code> </p>
-        </td>
-        <td><p>Build private website</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="degrees.html">degrees()</a></code> </p>
-        </td>
-        <td><p>Insert the symbol for degrees</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="set_version.html">set_version()</a></code> </p>
-        </td>
-        <td><p>Set version number as <code>major.minor.patch[.dev].datastore.snapshot</code></p></td>
-      </tr>
-    </tbody>
+    
     </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-handle-dataset-snapshots">Handle dataset snapshots</a></li>
-      <li><a href="#section-handle-the-configuration-file">Handle the configuration file</a></li>
-      <li><a href="#section-documentation-for-generic-datasets">Documentation for generic datasets</a></li>
-      <li><a href="#section-exported-datasets">Exported datasets</a></li>
-      <li><a href="#section-datastore-datasets">Datastore datasets</a></li>
-      <li><a href="#section-other-datasets">Other datasets</a></li>
-      <li><a href="#section-paths-pointing-to-dii-s-dropbox-folder">Paths pointing to 2dii's dropbox-folder</a></li>
-      <li><a href="#section-access-configuration-parameters">Access configuration parameters</a></li>
-      <li><a href="#section-miscellaneous">Miscellaneous</a></li>
     </ul>
   </div>
 </div>
@@ -539,7 +155,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/maurolepore/'>Mauro Lepore</a>, <a href='https://2degrees-investing.org/'>2 Degrees Investing Initiative</a>.</p>
+  <p>Developed by <a href='https://github.com/maurolepore/'>Mauro Lepore</a>, Jackson Hoffart, Klaus Hogedorn, Daan Koopman, Clare Murray, Florence Palandri, <a href='https://2degrees-investing.org/'>2 Degrees Investing Initiative</a>.</p>
 </div>
 
 <div class="pkgdown">

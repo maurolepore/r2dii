@@ -38,16 +38,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/r2dii.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/reference.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -61,8 +55,17 @@
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Changelog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
 <li>
-  <a href="../news/index.html">Changelog</a>
+      <a href="https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html">r2dii.darataw</a>
+    </li>
+  </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -73,7 +76,7 @@
   </a>
 </li>
 <li>
-  <a href="https://github.com/2DegreesInvesting/r2dii.dataraw/">
+  <a href="https://github.com/2DegreesInvesting/r2dii/">
     <span class="fa fa-github"></span>
      
   </a>
@@ -107,8 +110,8 @@
 <div id="creating-data-snapshots" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-data-snapshots" class="anchor"></a>Creating data snapshots</h2>
-<p><code><a href="../reference/take_snapshot.html">take_snapshot()</a></code> takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots, and warns if it fails to take a snapshot of expected datasets.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>()</a>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot()</a></code> takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots, and warns if it fails to take a snapshot of expected datasets.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>()</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt; Skipping existing snapshot of 'config.yml'.</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; Skipping existing snapshot of `ALD.BV`.</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt; Skipping existing snapshot of `ALD.CB`.</span></a>
@@ -146,8 +149,8 @@
 <a class="sourceLine" id="cb2-36" title="36"><span class="co">#&gt; Warning: Can't write the following datasets:</span></a>
 <a class="sourceLine" id="cb2-37" title="37"><span class="co">#&gt; LoanMarket, LoanMarketClimate</span></a></code></pre></div>
 <p>You can snapshot specific datasets.</p>
-<p><code><a href="../reference/possible_snapshots.html">possible_snapshots()</a></code> shows you all possible snapshots.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/possible_snapshots.html">possible_snapshots</a></span>()</a>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/possible_snapshots.html">possible_snapshots()</a></code> shows you all possible snapshots.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/possible_snapshots.html">possible_snapshots</a></span>()</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt;  [1] "ALD.BV"             "ALD.CB"             "ALD.CC"            </span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt;  [4] "ALD.Company"        "ALD.EQ"             "ALD.SPV"           </span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt;  [7] "BALANCE.SHEET.DATA" "BENCH.REGIONS"      "BicsSectorBridge"  </span></a>
@@ -164,7 +167,7 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">specific_datasets &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"RevenueSplit"</span>, <span class="st">"EQMarket.Size"</span>)</a>
 <a class="sourceLine" id="cb4-2" title="2"></a>
 <a class="sourceLine" id="cb4-3" title="3">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>(<span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; Wrote 'config.yml' to 'C:/Users/Mauro/git/r2dii/inst/extdata/config.yml'.</span></a>
 <a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; Wrote `RevenueSplit` to 'C:/Users/Mauro/git/r2dii/inst/extdata/RevenueSplit.csv'.</span></a>
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; Wrote `EQMarket.Size` to 'C:/Users/Mauro/git/r2dii/inst/extdata/EQMarket.Size.csv'.</span></a></code></pre></div>
@@ -173,18 +176,18 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">a_directory &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>()</a>
 <a class="sourceLine" id="cb5-2" title="2"></a>
 <a class="sourceLine" id="cb5-3" title="3">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; Wrote 'config.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp0Cnx2t/config.yml'.</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp0Cnx2t/RevenueSplit.csv'.</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp0Cnx2t/EQMarket.Size.csv'.</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; Wrote 'config.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp8kRLYK/config.yml'.</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp8kRLYK/RevenueSplit.csv'.</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp8kRLYK/EQMarket.Size.csv'.</span></a></code></pre></div>
 <p>By default the snapshots are created with a configuration file stored in the same directory where the package is installed.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="../reference/default_config.html">default_config</a></span>()</a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">default_config</a></span>()</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"</span></a></code></pre></div>
-<p><code><a href="../reference/edit_config.html">edit_config()</a></code> allows you to edit the default configuration file.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="../reference/edit_config.html">edit_config</a></span>()</a></code></pre></div>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/edit_config.html">edit_config()</a></code> allows you to edit the default configuration file.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/edit_config.html">edit_config</a></span>()</a></code></pre></div>
 <p>If you are on an interactive session a file should open that looks like this:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="../reference/default_config.html">default_config</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw"><a href="../reference/show_config.html">show_config</a></span>(<span class="dt">n_max =</span> <span class="dv">10</span>)</a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">default_config</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>(<span class="dt">n_max =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt; default:</span></a>
 <a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt;   Methodology:</span></a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;     HasBookValue: FALSE # ignore</span></a>
@@ -202,7 +205,7 @@
 <a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"</span></a>
 <a class="sourceLine" id="cb9-4" title="4"></a>
 <a class="sourceLine" id="cb9-5" title="5">custom_config <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw"><a href="../reference/show_config.html">show_config</a></span>()</a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>()</a>
 <a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt; default:</span></a>
 <a class="sourceLine" id="cb9-8" title="8"><span class="co">#&gt;   Expect:</span></a>
 <a class="sourceLine" id="cb9-9" title="9"><span class="co">#&gt;    param_a: a</span></a>
@@ -213,10 +216,10 @@
 <a class="sourceLine" id="cb9-14" title="14"><span class="co">#&gt;   TimeStamps:</span></a>
 <a class="sourceLine" id="cb9-15" title="15"><span class="co">#&gt;     ALD.Timestamp: 3333</span></a>
 <a class="sourceLine" id="cb9-16" title="16"><span class="co">#&gt;     FinancialData.Timestamp: 2018Q3</span></a></code></pre></div>
-<p><code>config</code> allows you to use a custom configuration file with <code><a href="../reference/take_snapshot.html">take_snapshot()</a></code>.</p>
+<p><code>config</code> allows you to use a custom configuration file with <code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory, <span class="dt">config =</span> custom_config)</a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp0Cnx2t/config-toy.yml'.</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory, <span class="dt">config =</span> custom_config)</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp8kRLYK/config-toy.yml'.</span></a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; Skipping existing snapshot of `RevenueSplit`.</span></a>
 <a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; Skipping existing snapshot of `EQMarket.Size`.</span></a></code></pre></div>
 <p><code><a href="https://rdrr.io/r/base/options.html">options("r2dii.dataraw_config")</a></code> allows you to provide a custom configuration file to be used globally.</p>
@@ -228,20 +231,20 @@
 <a class="sourceLine" id="cb11-6" title="6"></a>
 <a class="sourceLine" id="cb11-7" title="7"><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"r2dii.dataraw_config"</span>)</a>
 <a class="sourceLine" id="cb11-8" title="8"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"</span></a></code></pre></div>
-<p><code><a href="../reference/take_snapshot.html">take_snapshot()</a></code> will now use the custom configuration file.</p>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot()</a></code> will now use the custom configuration file.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
 <a class="sourceLine" id="cb12-3" title="3"><span class="co">#&gt; Skipping existing snapshot of 'config-toy.yml'.</span></a>
 <a class="sourceLine" id="cb12-4" title="4"><span class="co">#&gt; Skipping existing snapshot of `RevenueSplit`.</span></a>
 <a class="sourceLine" id="cb12-5" title="5"><span class="co">#&gt; Skipping existing snapshot of `EQMarket.Size`.</span></a></code></pre></div>
 <p><code><a href="https://rdrr.io/r/base/options.html">options()</a></code> affect your R session globally; you set this option once an many other functions can use it.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="../reference/default_config.html">get_config</a></span>()</a>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>()</a>
 <a class="sourceLine" id="cb13-2" title="2"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"</span></a>
 <a class="sourceLine" id="cb13-3" title="3"></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="../reference/edit_config.html">edit_config</a></span>()</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/edit_config.html">edit_config</a></span>()</a>
 <a class="sourceLine" id="cb13-5" title="5"></a>
 <a class="sourceLine" id="cb13-6" title="6"><span class="co"># You'll see something like this</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="kw"><a href="../reference/show_config.html">show_config</a></span>(<span class="kw"><a href="../reference/default_config.html">get_config</a></span>())</a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>())</a>
 <a class="sourceLine" id="cb13-8" title="8"><span class="co">#&gt; default:</span></a>
 <a class="sourceLine" id="cb13-9" title="9"><span class="co">#&gt;   Expect:</span></a>
 <a class="sourceLine" id="cb13-10" title="10"><span class="co">#&gt;    param_a: a</span></a>
@@ -256,7 +259,7 @@
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(restore_options)</a>
 <a class="sourceLine" id="cb14-2" title="2"></a>
 <a class="sourceLine" id="cb14-3" title="3">specific_datasets <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/take_snapshot.html">take_snapshot</a></span>(<span class="dt">destdir =</span> a_directory)</a>
 <a class="sourceLine" id="cb14-5" title="5"><span class="co">#&gt; Skipping existing snapshot of 'config.yml'.</span></a>
 <a class="sourceLine" id="cb14-6" title="6"><span class="co">#&gt; Skipping existing snapshot of `RevenueSplit`.</span></a>
 <a class="sourceLine" id="cb14-7" title="7"><span class="co">#&gt; Skipping existing snapshot of `EQMarket.Size`.</span></a></code></pre></div>
@@ -264,16 +267,16 @@
 <div id="documentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation" class="anchor"></a>Documentation</h2>
-<p>You can access the high level documentation of the package with <code><a href="../reference/r2dii.dataraw-package.html">?r2dii.dataraw</a></code>. At the bottom you may click <em>Index</em> to access the help files of all topics. As usual, you can access the help file of any topic with <code>?topic</code>.</p>
+<p>You can access the high level documentation of the package with <code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/r2dii.dataraw-package.html">?r2dii.dataraw</a></code>. At the bottom you may click <em>Index</em> to access the help files of all topics. As usual, you can access the help file of any topic with <code>?topic</code>.</p>
 <p>A good way to learn about all features is to explore the “r2dii.dataraw” tab of the private package-website:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="../reference/browse_private_site.html">browse_private_site</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/browse_private_site.html">browse_private_site</a></span>()</a></code></pre></div>
 <p>Please help me improve the documentation via pull requests.</p>
 </div>
 <div id="create-paths" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-paths" class="anchor"></a>Create paths</h2>
 <p>A family of functions create robust paths.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="../reference/USER.NAME.html">DROPBOX.PATH</a></span>()</a>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/USER.NAME.html">DROPBOX.PATH</a></span>()</a>
 <a class="sourceLine" id="cb16-2" title="2"><span class="co">#&gt; C:/Users/Mauro/Dropbox (2° Investing)</span></a></code></pre></div>
 <p>For this to work, you must have the Dropbox folder of 2dii directly under home (the default location).</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/path_expand.html">path_home</a></span>(), <span class="dt">regexp =</span> <span class="st">"Dropbox"</span>)</a>
@@ -284,14 +287,14 @@
 <h2 class="hasAnchor">
 <a href="#configuration-file" class="anchor"></a>Configuration file</h2>
 <p>A family of functions help you to deal with the configuration file.</p>
-<p><code><a href="../reference/edit_config.html">edit_config()</a></code> opens the default configuration file so you can edit it.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="../reference/edit_config.html">edit_config</a></span>()</a></code></pre></div>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/edit_config.html">edit_config()</a></code> opens the default configuration file so you can edit it.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span>()) <span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/edit_config.html">edit_config</a></span>()</a></code></pre></div>
 <p>(I’m not in an interactive session so the chunk above won’t run.)</p>
-<p><code><a href="../reference/default_config.html">get_config()</a></code> outputs a path to a configuration file. By default it outputs the path to the default configuration file – stored in the r2dii.dataraw package.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw"><a href="../reference/default_config.html">get_config</a></span>()</a>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config()</a></code> outputs a path to a configuration file. By default it outputs the path to the default configuration file – stored in the r2dii.dataraw package.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>()</a>
 <a class="sourceLine" id="cb19-2" title="2"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"</span></a></code></pre></div>
-<p><code><a href="../reference/show_config.html">show_config()</a></code> shows a configuration file.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw"><a href="../reference/show_config.html">show_config</a></span>(<span class="kw"><a href="../reference/default_config.html">get_config</a></span>(), <span class="dt">n_max =</span> <span class="dv">10</span>)</a>
+<p><code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config()</a></code> shows a configuration file.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>(), <span class="dt">n_max =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb20-2" title="2">default<span class="op">:</span></a>
 <a class="sourceLine" id="cb20-3" title="3"><span class="st">  </span>Methodology<span class="op">:</span></a>
 <a class="sourceLine" id="cb20-4" title="4"><span class="st">    </span>HasBookValue<span class="op">:</span><span class="st"> </span><span class="ot">FALSE</span> <span class="co"># ignore</span></a>
@@ -303,13 +306,13 @@
 <a class="sourceLine" id="cb20-10" title="10"><span class="st">    </span><span class="co"># setting the dates of the data-input for financial and asset-level data: this identifies the input files</span></a>
 <a class="sourceLine" id="cb20-11" title="11"><span class="st">    </span>FinancialData.Timestamp<span class="op">:</span><span class="st"> </span>2018Q4 <span class="co"># specifies the Financial data sourcing date ie from which date the financial information is taken</span></a></code></pre></div>
 <p>You can change the default configuration file globally via <code><a href="https://rdrr.io/r/base/options.html">options()</a></code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">your_config &lt;-<span class="st"> </span><span class="kw"><a href="../reference/default_config.html">example_config</a></span>(<span class="st">"config-toy.yml"</span>)</a>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">your_config &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">example_config</a></span>(<span class="st">"config-toy.yml"</span>)</a>
 <a class="sourceLine" id="cb21-2" title="2">restore &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii.dataraw_config =</span> your_config)</a>
 <a class="sourceLine" id="cb21-3" title="3"></a>
-<a class="sourceLine" id="cb21-4" title="4"><span class="kw"><a href="../reference/default_config.html">get_config</a></span>()</a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>()</a>
 <a class="sourceLine" id="cb21-5" title="5">[<span class="dv">1</span>] <span class="st">"C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"</span></a>
 <a class="sourceLine" id="cb21-6" title="6"></a>
-<a class="sourceLine" id="cb21-7" title="7"><span class="kw"><a href="../reference/show_config.html">show_config</a></span>(<span class="kw"><a href="../reference/default_config.html">get_config</a></span>())</a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>())</a>
 <a class="sourceLine" id="cb21-8" title="8">default<span class="op">:</span></a>
 <a class="sourceLine" id="cb21-9" title="9"><span class="st">  </span>Expect<span class="op">:</span></a>
 <a class="sourceLine" id="cb21-10" title="10"><span class="st">   </span>param_a<span class="op">:</span><span class="st"> </span>a</a>
@@ -330,17 +333,17 @@
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># Using the default configuration file</span></a>
 <a class="sourceLine" id="cb22-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"r2dii.dataraw_config"</span>)</a>
 <a class="sourceLine" id="cb22-3" title="3"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb22-4" title="4"><span class="kw"><a href="../reference/FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP</a></span>()</a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP</a></span>()</a>
 <a class="sourceLine" id="cb22-5" title="5"><span class="co">#&gt; [1] "2018Q4"</span></a>
-<a class="sourceLine" id="cb22-6" title="6"><span class="kw"><a href="../reference/MASTER.DATA.PATH.html">FIN.DATA.PATH</a></span>()</a>
+<a class="sourceLine" id="cb22-6" title="6"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/MASTER.DATA.PATH.html">FIN.DATA.PATH</a></span>()</a>
 <a class="sourceLine" id="cb22-7" title="7"><span class="co">#&gt; C:/Users/Mauro/Dropbox (2° Investing)/PortCheck/00_Data/02_FinancialData/2018Q4</span></a>
 <a class="sourceLine" id="cb22-8" title="8"></a>
 <a class="sourceLine" id="cb22-9" title="9"><span class="co"># Using your configuration file</span></a>
-<a class="sourceLine" id="cb22-10" title="10">your_config &lt;-<span class="st"> </span><span class="kw"><a href="../reference/default_config.html">example_config</a></span>(<span class="st">"config-toy.yml"</span>)</a>
+<a class="sourceLine" id="cb22-10" title="10">your_config &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">example_config</a></span>(<span class="st">"config-toy.yml"</span>)</a>
 <a class="sourceLine" id="cb22-11" title="11">restore &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii.dataraw_config =</span> your_config)</a>
-<a class="sourceLine" id="cb22-12" title="12"><span class="kw"><a href="../reference/FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP</a></span>()</a>
+<a class="sourceLine" id="cb22-12" title="12"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/FINANCIAL.TIMESTAMP.html">FINANCIAL.TIMESTAMP</a></span>()</a>
 <a class="sourceLine" id="cb22-13" title="13"><span class="co">#&gt; [1] "2018Q3"</span></a>
-<a class="sourceLine" id="cb22-14" title="14"><span class="kw"><a href="../reference/MASTER.DATA.PATH.html">FIN.DATA.PATH</a></span>()</a>
+<a class="sourceLine" id="cb22-14" title="14"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/MASTER.DATA.PATH.html">FIN.DATA.PATH</a></span>()</a>
 <a class="sourceLine" id="cb22-15" title="15"><span class="co">#&gt; C:/Users/Mauro/Dropbox (2° Investing)/PortCheck/00_Data/02_FinancialData/2018Q3</span></a>
 <a class="sourceLine" id="cb22-16" title="16"></a>
 <a class="sourceLine" id="cb22-17" title="17"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(restore)</a></code></pre></div>
@@ -349,9 +352,9 @@
 <h2 class="hasAnchor">
 <a href="#extending-functions-to-access-configuration-parameters" class="anchor"></a>Extending functions to access configuration parameters</h2>
 <p>Eventually you will likely need to access new configuration parameters. How would you expand this family of functions?</p>
-<p>Use <code><a href="../reference/get_param.html">get_param()</a></code> to create new functions to access configuration parameters.</p>
+<p>Use <code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/get_param.html">get_param()</a></code> to create new functions to access configuration parameters.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co"># Create a `get_a_value()` function to get `a_value` from `a_field`</span></a>
-<a class="sourceLine" id="cb23-2" title="2">get_a_value &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_param.html">get_param</a></span>(<span class="st">"a_field"</span>)</a>
+<a class="sourceLine" id="cb23-2" title="2">get_a_value &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/get_param.html">get_param</a></span>(<span class="st">"a_field"</span>)</a>
 <a class="sourceLine" id="cb23-3" title="3"></a>
 <a class="sourceLine" id="cb23-4" title="4"><span class="co"># Create an example configuration file</span></a>
 <a class="sourceLine" id="cb23-5" title="5">config &lt;-<span class="st"> </span>glue<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"</span></a>
@@ -359,7 +362,7 @@
 <a class="sourceLine" id="cb23-7" title="7"><span class="st">     a_field: a_value</span></a>
 <a class="sourceLine" id="cb23-8" title="8"><span class="st"> "</span>)</a>
 <a class="sourceLine" id="cb23-9" title="9"></a>
-<a class="sourceLine" id="cb23-10" title="10"><span class="kw"><a href="../reference/show_config.html">show_config</a></span>(config)</a>
+<a class="sourceLine" id="cb23-10" title="10"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/show_config.html">show_config</a></span>(config)</a>
 <a class="sourceLine" id="cb23-11" title="11">  default<span class="op">:</span></a>
 <a class="sourceLine" id="cb23-12" title="12"><span class="st">    </span>a_field<span class="op">:</span><span class="st"> </span>a_value</a></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co"># Write the config file to a temporary file</span></a>
@@ -374,7 +377,7 @@
 <a href="#datasets" class="anchor"></a>Datasets</h2>
 <p>A family of functions allow you to read local datasets from your local 2dii Dropbox-folder, e.g.:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Not showing this for privacy</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="kw"><a href="../reference/ALD.BV.html">ALD.BV</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb25-2" title="2"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/ALD.BV.html">ALD.BV</a></span>()</a></code></pre></div>
 <p>A family of datasets become directly available when you attach the r2dii.dataraw package, e.g.:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">INDEX.REGIONS</a>
 <a class="sourceLine" id="cb26-2" title="2"><span class="co">#&gt; # A tibble: 327 x 3</span></a>
@@ -399,8 +402,8 @@
 <a class="sourceLine" id="cb26-21" title="21"><span class="co">#&gt;  [7] "Regional"               "Regional(state/provnc)"</span></a>
 <a class="sourceLine" id="cb26-22" title="22"><span class="co">#&gt;  [9] "Export/Import Bank"     "Regional Authority"    </span></a>
 <a class="sourceLine" id="cb26-23" title="23"><span class="co">#&gt; [11] "Regional Agencies"</span></a></code></pre></div>
-<p>Some datasets are sensitive to the configuration file, which you can always check with <code><a href="../reference/default_config.html">get_config()</a></code>.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw"><a href="../reference/default_config.html">get_config</a></span>()</a>
+<p>Some datasets are sensitive to the configuration file, which you can always check with <code><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config()</a></code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/r2dii.dataraw/man/default_config.html">get_config</a></span>()</a>
 <a class="sourceLine" id="cb27-2" title="2"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"</span></a></code></pre></div>
 </div>
   </div>
@@ -427,7 +430,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/maurolepore/">Mauro Lepore</a>, <a href="https://2degrees-investing.org/">2 Degrees Investing Initiative</a>.</p>
+  <p>Developed by <a href="https://github.com/maurolepore/">Mauro Lepore</a>, Jackson Hoffart, Klaus Hogedorn, Daan Koopman, Clare Murray, Florence Palandri, <a href="https://2degrees-investing.org/">2 Degrees Investing Initiative</a>.</p>
 </div>
 
 <div class="pkgdown">

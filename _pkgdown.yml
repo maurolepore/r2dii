@@ -4,7 +4,7 @@ template:
   params:
     bootswatch: flatly
 
-url: https://github.com/2DegreesInvesting/r2dii.dataraw/
+url: https://github.com/2DegreesInvesting/r2dii/
 
 authors:
   Mauro Lepore:
@@ -17,71 +17,35 @@ home:
   - text: Learn more
     href: https://2degrees-investing.org/
 
-
+toc:
+  depth: 3
 
 navbar:
 
   type: default
+
+  left:
+
+  - text: "Get started"
+    href: articles/r2dii.html
+
+  - text: "Reference"
+    href: articles/reference.html
+
+  - text: "Articles"
+    menu:
+    - text: "Documenting r2dii datasets"
+      href: articles/document_datasets.html
+
+  - text: "Changelog"
+    menu:
+    - text: "r2dii.darataw"
+      href: https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html
 
   right:
     - icon: fa-gavel
       href: https://github.com/maurolepore/
 
     - icon: fa-github
-      href: https://github.com/2DegreesInvesting/r2dii.dataraw/
-
-
-
-reference:
-
-  - title: Handle dataset snapshots
-    contents:
-    - take_snapshot
-    - possible_snapshots
-    - has_concept("handle snapshots")
-
-  - title: Handle the configuration file
-    contents:
-    - has_concept("functions to deal with configuration files")
-
-  - title: Documentation for generic datasets
-    contents:
-    - loanbook_description
-
-  - title: Exported datasets
-    desc: >
-      These datasets are directly accessible when you attach the package.
-    contents:
-    - data_dictionary
-    - loanbook_fake
-    - has_concept("exported datasets")
-    - has_concept("exported datasets to remove or outsource to data store")
-
-  - title: Datastore datasets
-    desc: >
-      These datasets are accessible via functions that get them from a local
-      copy of 2dii's Dropbox folder.
-    contents:
-    - has_concept("datasets in datastore")
-
-  - title: Other datasets
-    desc: >
-      These datasets are accessible via functions that get them from a local
-      copy of 2dii's Dropbox folder.
-    contents:
-    - has_concept("datasets in directories other than Reference or datastore")
-
-  - title: Paths pointing to 2dii's dropbox-folder
-    contents:
-    - has_concept("functions to output paths depending on a configuration file")
-    - has_concept("functions to output 2dii paths")
-
-  - title: Access configuration parameters
-    contents:
-    - get_param
-    - has_concept("functions to get specific 2dii configuration parameters")
-
-  - title: Miscellaneous
-    contents:
-    - has_concept("miscellaneous utility functions")
+      href: https://github.com/2DegreesInvesting/r2dii/
 

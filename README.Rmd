@@ -41,7 +41,7 @@ Install the development version of r2dii with:
 devtools::install_github("2DegreesInvesting/r2dii")
 ```
 
-## Examples
+## Example
 
 These examples provide a high level overview of the main features. For more details see [Get started](articles/r2dii.html).
 

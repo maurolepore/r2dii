@@ -1,0 +1,127 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(dplyr)
+library(pkgdoc)
+library(r2dii)
+```
+
+```{r, warning=FALSE}
+url_r2dii <- "https://2degreesinvesting.github.io/"
+r2dii_packages <- "r2dii.dataraw"
+search_default <- "dataset"
+
+r2dii_reference_concept <- function(x) {
+  reference_concept(x, url = url_r2dii, packages = r2dii_packages) %>% 
+    custom_table()
+}
+r2dii_reference_package <- function(x) {
+  reference_package(x, url = url_r2dii, packages = r2dii_packages) %>% 
+    custom_table()
+}
+custom_table <- function(x) {
+  x %>% 
+    select(-package, -concept) %>% 
+    unique() %>%
+    knitr::kable(
+      x, 
+      format = "html",
+      col.names = NULL,
+      escape = FALSE
+    ) %>%
+    kableExtra::column_spec(1, bold = TRUE) %>% 
+    kableExtra::column_spec(2, width = "20em")
+}
+```
+
+Search globally in the search box below, or navigate the index clicking the menu on the right.
+
+### Global search
+
+```{r global-search, warning=FALSE}
+r2dii_packages %>% 
+  purrr::map_dfr(reference_package, url = url_r2dii) %>% 
+  select(-package, -concept) %>% 
+  unique() %>% 
+  purrr::set_names(c("", "object", "description")) %>% 
+  DT::datatable(
+    escape = FALSE,
+    rownames = NULL,
+    options = list(
+      # f: filter, t: table, i: information
+      dom = "fti",
+      search = list(search = search_default)
+    )
+  )
+```
+
+### Handle dataset snapshots
+
+```{r}
+r2dii_reference_concept("handle snapshots")
+```
+
+### Handle the configuration file
+
+```{r}
+r2dii_reference_concept("functions to deal with configuration files")
+```
+
+### Documentation for generic datasets
+
+```{r}
+r2dii_reference_concept("generic datasets")
+```
+
+### Exported datasets
+
+These datasets are directly accessible when you attach the package.
+
+```{r}
+r2dii_reference_concept("demo datasets")
+r2dii_reference_concept("exported datasets")
+r2dii_reference_concept("exported datasets to remove or outsource to data store")
+```
+
+### Datastore datasets
+
+These datasets are accessible via functions that get them from a local copy of 2dii's Dropbox folder.
+
+```{r}
+r2dii_reference_concept("datasets in datastore")
+```
+
+### Other datasets
+
+These datasets are accessible via functions that get them from a local copy of 2dii's Dropbox folder.
+
+```{r}
+r2dii_reference_concept("datasets in directories other than Reference or datastore")
+```
+
+### Paths pointing to 2dii's dropbox-folder
+
+These datasets are accessible via functions that get them from a local copy of 2dii's Dropbox folder.
+
+```{r}
+r2dii_reference_concept("functions to output paths depending on a configuration file")
+r2dii_reference_concept("functions to output 2dii paths")
+```
+
+### Access configuration parameters
+
+```{r}
+r2dii_reference_concept("functions to get specific 2dii configuration parameters")
+```
+
+### Miscellaneous
+
+```{r}
+r2dii_reference_concept("miscellaneous utility functions")
+```
