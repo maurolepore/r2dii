@@ -42,7 +42,8 @@ Depends:
 Suggests: 
     DT,
     pkgdown,
-    rmarkdown
+    rmarkdown,
+    kableExtra
 Remotes: 
     2degreesinvesting/r2dii.dataprep,
     2degreesinvesting/r2dii.dataraw
