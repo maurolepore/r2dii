@@ -1,5 +1,9 @@
 destination: docs
 
+development:
+  mode: devel
+  destination: dev
+
 template:
   params:
     bootswatch: flatly
