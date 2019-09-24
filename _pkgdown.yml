@@ -1,9 +1,5 @@
 destination: docs
 
-development:
-  mode: devel
-  destination: dev
-
 template:
   params:
     bootswatch: flatly
@@ -45,6 +41,8 @@ navbar:
     menu:
     - text: "r2dii.darataw"
       href: https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html
+    - text: "r2dii.utils"
+      href: https://2degreesinvesting.github.io/r2dii.utils/news/index.html
 
   right:
     - icon: fa-gavel

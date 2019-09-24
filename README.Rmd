@@ -19,11 +19,9 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
 <!-- badges: end -->
 
-[2 `r r2dii.dataraw::degrees()` Investing Initiative](https://2degrees-investing.org/) (2dii) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the r2dii (meta) package. The r2dii package is the only package most users need to know about. Contact us if you need more details.
+[2 `r r2dii.utils::degrees()` Investing Initiative](https://2degrees-investing.org/) (2dii) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the r2dii (meta) package. The r2dii package is the only package most users need to know about. Contact us if you need more details.
 
-Features:
-
-* Functions to access raw or lightly-prepared data. This allows you to access "live" data from 2dii's dropbox folder and to take a snapshot of it.
+Currently, r2dii allows you to access raw or lightly-prepared data, to create robust r2dii's paths, and to handle configuration files.
 
 ## Installation
 

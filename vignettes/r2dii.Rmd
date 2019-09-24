@@ -14,7 +14,7 @@ This article details most features.
 As usual, start using the r2dii.dataraw package with:
 
 ```{r}
-library(r2dii.dataraw)
+library(r2dii)
 ```
 
 ## Creating data snapshots
@@ -77,7 +77,7 @@ default_config() %>%
 You can use a custom configuration file.
 
 ```{r}
-custom_config <- r2dii.dataraw::example_config("config-toy.yml")
+custom_config <- example_config("config-toy.yml")
 custom_config
 
 custom_config %>% 

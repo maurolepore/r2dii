@@ -23,7 +23,7 @@ Generic datasets (e.g. `loanbook`) should have these components:
 * A help file including:
     * A generic title and description that applies to any similar dataset.
     * `@name <generic>_description` (e.g. `loanbook_description`).
-    * `@seealso data_dictionary`.
+    * `@seealso [data_dictionary]`.
     * `@family` linking to similar datasets.
     * `@examples` showing the definitions of the generic dataset columns.
 
@@ -69,27 +69,27 @@ Specific datasets (e.g. `loanbook`) should have these components:
 
     * `<details>`: A single string indicating the most prominent characteristic of the specific dataset.
 
-For example, if your data is a kind of loanbook dataset, and it is a fake one for examples and tests, then a good name for it would be `loanbook_fake`. This format works well with auto-completion.
+For example, if your data is a kind of loanbook dataset, and it is only for demonstrations, examples, and tests, then a good name for it would be `loanbook_demo`. This format works well with auto-completion.
 
 <img src="https://i.imgur.com/j2QmmKE.png" height=150 />
 
 * A help file including:
     * A title and description that applies to the specific dataset.
-    * `@seealso data_dictionary`.
+    * `@seealso [data_dictionary]`.
     * `@family` linking to similar datasets if any.
     * `@examples` giving an overview of the dataset.
 
 ```r
-# R/loanbook_fake.R 
+# R/loanbook_demo.R 
 
-#' A fake loanbook dataset
+#' A loanbook dataset for demonstration
 #'
-#' A dataframe containing fake loanbook data. This is a public dataset useful
-#' for examples and tests.
+#' This is a public dataset that may be used as a template for banks to create
+#' their own loanbook datasets. It is also useful for examples and tests.
 #'
+#' @family demo datasets
 #' @seealso data_dictionary
-#' @family bank datasets
 #' @examples
-#' loanbook_fake
-"loanbook_fake"
+#' loanbook_demo
+"loanbook_demo"
 ```

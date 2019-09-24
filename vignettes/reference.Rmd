@@ -14,15 +14,14 @@ library(r2dii)
 
 ```{r, warning=FALSE}
 url_r2dii <- "https://2degreesinvesting.github.io/"
-r2dii_packages <- "r2dii.dataraw"
 search_default <- "dataset"
 
 r2dii_reference_concept <- function(x) {
-  reference_concept(x, url = url_r2dii, packages = r2dii_packages) %>% 
+  reference_concept(x, url = url_r2dii, packages = r2dii_packages()) %>% 
     custom_table()
 }
 r2dii_reference_package <- function(x) {
-  reference_package(x, url = url_r2dii, packages = r2dii_packages) %>% 
+  reference_package(x, url = url_r2dii, packages = r2dii_packages()) %>% 
     custom_table()
 }
 custom_table <- function(x) {
@@ -45,7 +44,7 @@ Search globally in the search box below, or navigate the index clicking the menu
 ### Global search
 
 ```{r global-search, warning=FALSE}
-r2dii_packages %>% 
+r2dii_packages() %>% 
   purrr::map_dfr(reference_package, url = url_r2dii) %>% 
   select(-package, -concept) %>% 
   unique() %>% 

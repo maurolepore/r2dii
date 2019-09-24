@@ -18,11 +18,8 @@ and use all those packages at once, we also built the r2dii (meta)
 package. The r2dii package is the only package most users need to know
 about. Contact us if you need more details.
 
-Features:
-
-  - Functions to access raw or lightly-prepared data. This allows you to
-    access “live” data from 2dii’s dropbox folder and to take a snapshot
-    of it.
+Currently, r2dii allows you to access raw or lightly-prepared data, to
+create robust r2dii’s paths, and to handle configuration files.
 
 ## Installation
 
@@ -51,8 +48,9 @@ Attaching r2dii automatically attaches other r2dii packages.
 
 ``` r
 library(r2dii)
-#> Loading required package: r2dii.dataraw
 #> Loading required package: r2dii.dataprep
+#> Loading required package: r2dii.dataraw
+#> Loading required package: r2dii.utils
 ```
 
 ### Creating snapshots
@@ -134,7 +132,7 @@ Use `config` to provide a custom configuration file to
 ``` r
 custom_config <- example_config("config-toy.yml")
 custom_config
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"
+#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config-toy.yml"
 
 custom_config %>% 
   show_config()
@@ -159,8 +157,8 @@ custom_config %>%
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/DebtMarketClimate.csv.gz'.
 ```
 
   - `options(r2dii.dataraw_config = <custom_config>)` does the same but
@@ -173,14 +171,14 @@ restore <- options(r2dii.dataraw_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpUztmhf/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/DebtMarketClimate.csv.gz'.
 get_config()
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config-toy.yml"
+#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config-toy.yml"
 
 options(restore)
 get_config()
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.dataraw/config.yml"
+#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config.yml"
 ```
 
 See also `?edit_config()` to edit the default configuration file.
