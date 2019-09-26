@@ -39,7 +39,7 @@ navbar:
 
   - text: "Changelog"
     menu:
-    - text: "r2dii.darataw"
+    - text: "r2dii.dataraw"
       href: https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html
     - text: "r2dii.utils"
       href: https://2degreesinvesting.github.io/r2dii.utils/news/index.html
