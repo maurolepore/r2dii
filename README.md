@@ -157,22 +157,22 @@ custom_config %>%
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/DebtMarketClimate.csv.gz'.
 ```
 
-  - `options(r2dii.dataraw_config = <custom_config>)` does the same but
-    affects your R session globally.
+  - `options(r2dii_config = <custom_config>)` does the same but affects
+    your R session globally.
 
 <!-- end list -->
 
 ``` r
-restore <- options(r2dii.dataraw_config = custom_config)
+restore <- options(r2dii_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpcJXZtI/DebtMarketClimate.csv.gz'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/config-toy.yml'.
+#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/DebtMarketClimate.csv.gz'.
 get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config-toy.yml"
 

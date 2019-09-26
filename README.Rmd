@@ -89,10 +89,10 @@ custom_config %>%
   take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
 ```
 
-* `options(r2dii.dataraw_config = <custom_config>)` does the same but affects your R session globally.
+* `options(r2dii_config = <custom_config>)` does the same but affects your R session globally.
 
 ```{r}
-restore <- options(r2dii.dataraw_config = custom_config)
+restore <- options(r2dii_config = custom_config)
 
 "DebtMarketClimate" %>% 
   take_snapshot(destdir = tempdir(), overwrite = TRUE)

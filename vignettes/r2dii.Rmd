@@ -91,15 +91,15 @@ specific_datasets %>%
   take_snapshot(destdir = a_directory, config = custom_config)
 ```
 
-`options("r2dii.dataraw_config")` allows you to provide a custom configuration file to be used globally.
+`options("r2dii_config")` allows you to provide a custom configuration file to be used globally.
 
 ```{r}
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 
 # Set new options and store old options to restore them later
-restore_options <- options(r2dii.dataraw_config = custom_config)
+restore_options <- options(r2dii_config = custom_config)
 
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 ```
 
 `take_snapshot()` will now use the custom configuration file.
@@ -183,7 +183,7 @@ You can change the default configuration file globally via `options()`.
 
 ```{r, comment=""}
 your_config <- example_config("config-toy.yml")
-restore <- options(r2dii.dataraw_config = your_config)
+restore <- options(r2dii_config = your_config)
 
 get_config()
 
@@ -198,13 +198,13 @@ A family of functions are sensitive to the configuration file you use. This incl
 
 ```{r}
 # Using the default configuration file
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 FINANCIAL.TIMESTAMP()
 FIN.DATA.PATH()
 
 # Using your configuration file
 your_config <- example_config("config-toy.yml")
-restore <- options(r2dii.dataraw_config = your_config)
+restore <- options(r2dii_config = your_config)
 FINANCIAL.TIMESTAMP()
 FIN.DATA.PATH()
 
