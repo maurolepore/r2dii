@@ -146,7 +146,7 @@ Please help me improve the documentation via pull requests.
 A family of functions create robust paths.
 
 ```{r}
-DROPBOX.PATH()
+path_dropbox_2dii()
 ```
 
 For this to work, you must have the Dropbox folder of 2dii directly under home (the default location).
