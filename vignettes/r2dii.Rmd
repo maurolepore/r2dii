@@ -9,9 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This article details most features.
-
-As usual, start using the r2dii.dataraw package with:
+As usual, start by using the r2dii package with:
 
 ```{r}
 library(r2dii)
@@ -19,114 +17,8 @@ library(r2dii)
 
 ## Creating data snapshots
 
-`take_snapshot()` takes a snapshot of all possible datasets. By default it does not overwrite existing snapshots, and warns if it fails to take a snapshot of expected datasets.
+```{r, child="take-snapshot.Rmd"}
 
-```{r}
-take_snapshot()
-```
-
-You can snapshot specific datasets. 
-
-`possible_snapshots()` shows you all possible snapshots.
-
-```{r}
-possible_snapshots()
-```
-
-`overwrite = TRUE` allows you to overwrite existing snapshots.
-
-```{r}
-specific_datasets <- c("RevenueSplit", "EQMarket.Size")
-
-specific_datasets %>% 
-  take_snapshot(overwrite = TRUE)
-```
-
-By default the snapshots are stored in a special directory of the package. (Files in this special directory automatically install in your system when you install the package).
-
-`destdir` allows you to customize the destination directory.
-
-```{r}
-a_directory <- tempdir()
-
-specific_datasets %>% 
-  take_snapshot(destdir = a_directory)
-```
-
-By default the snapshots are created with a configuration file stored in the same directory where the package is installed.
-
-```{r}
-default_config()
-```
-
-`edit_config()` allows you to edit the default configuration file.
-
-```r
-if (interactive()) edit_config()
-```
-
-If you are on an interactive session a file should open that looks like this:
-
-```{r, message=FALSE}
-default_config() %>% 
-  show_config(n_max = 10)
-```
-
-(I showed only `n_max` lines to save space.)
-
-You can use a custom configuration file.
-
-```{r}
-custom_config <- example_config("config-toy.yml")
-custom_config
-
-custom_config %>% 
-  show_config()
-```
-
-`config` allows you to use a custom configuration file with `take_snapshot()`.
-
-```{r}
-specific_datasets %>% 
-  take_snapshot(destdir = a_directory, config = custom_config)
-```
-
-`options("r2dii_config")` allows you to provide a custom configuration file to be used globally.
-
-```{r}
-getOption("r2dii_config")
-
-# Set new options and store old options to restore them later
-restore_options <- options(r2dii_config = custom_config)
-
-getOption("r2dii_config")
-```
-
-`take_snapshot()` will now use the custom configuration file.
-
-```{r}
-specific_datasets %>% 
-  take_snapshot(destdir = a_directory)
-```
-
-`options()` affect your R session globally; you set this option once an many other functions can use it.
-
-```{r}
-get_config()
-
-if (interactive()) edit_config()
-
-# You'll see something like this
-show_config(get_config())
-```
-
-Restore the original options to go back to using the custom configuration file.
-
-```{r}
-options(restore_options)
-
-specific_datasets %>% 
-  take_snapshot(destdir = a_directory)
 ```
 
 ## Documentation

@@ -1,0 +1,57 @@
+```{r, include=FALSE}
+library(r2dii)
+```
+
+`take_snapshot()` allows you to take snapshots of multiple datasets. Its default behavior is sensible, but conservative and potentially slow (see `take_snapshot()`). You may want to change the default arguments.
+
+Use:
+
+* `datasets` to snapshot specific datasets.
+* Use `destdir` to customize the destination directory.
+* Use `config` to provide a custom configuration file to `take_snapshot()`.
+
+```{r}
+datasets <- c("RevenueSplit", "EQMarket.Size")
+custom_destdir <- tempdir()
+custom_config <- example_config("config-toy.yml")
+
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config
+)
+```
+
+Use:
+
+* `overwrite = TRUE` to overwrite existing snapshots.
+
+```{r}
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config
+)
+
+# Overwrite
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config,
+  overwrite = TRUE
+)
+```
+
+* `options(r2dii_config = <custom_config>)` replaces `config` and affects your R session globally.
+
+```{r}
+restore <- options(r2dii_config = custom_config)
+
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  overwrite = TRUE
+)
+
+options(restore)
+```

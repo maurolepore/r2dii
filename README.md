@@ -55,130 +55,81 @@ library(r2dii)
 
 ### Creating snapshots
 
-`take_snapshot()` snapshots all possible datasets, using a default
-configuration file, a default destination directory, and does not
-overwrite existing snapshots.
-
-``` r
-take_snapshot()
-#> Skipping existing snapshot of 'config.yml'.
-#> Skipping existing snapshot of `ALD.BV`.
-#> Skipping existing snapshot of `ALD.CB`.
-#> Skipping existing snapshot of `ALD.CC`.
-#> Skipping existing snapshot of `ALD.Company`.
-#> Skipping existing snapshot of `ALD.EQ`.
-#> Skipping existing snapshot of `ALD.SPV`.
-#> Skipping existing snapshot of `BALANCE.SHEET.DATA`.
-#> Skipping existing snapshot of `BENCH.REGIONS`.
-#> Skipping existing snapshot of `BicsSectorBridge`.
-#> Skipping existing snapshot of `CB_OG`.
-#> Skipping existing snapshot of `DebtMarket`.
-#> Skipping existing snapshot of `DebtMarketClimate`.
-#> Skipping existing snapshot of `EQMarket.Size`.
-#> Skipping existing snapshot of `EQ_OG`.
-#> Skipping existing snapshot of `FIN.DATA`.
-#> Skipping existing snapshot of `Fund.Data`.
-#> Skipping existing snapshot of `FundsTrusts`.
-#> Skipping existing snapshot of `GROUPS.GOVT`.
-#> Skipping existing snapshot of `INDEX.REGIONS`.
-#> Skipping existing snapshot of `Indices`.
-#> Skipping existing snapshot of `PHYSICAL.RISK.CB`.
-#> Skipping existing snapshot of `PHYSICAL.RISK.EQ`.
-#> Skipping existing snapshot of `Receipts`.
-#> Skipping existing snapshot of `RevenueSplit`.
-#> Skipping existing snapshot of `SCEN`.
-#> Skipping existing snapshot of `SCENLong`.
-#> Skipping existing snapshot of `SEC.TYPE.BONDS`.
-#> Skipping existing snapshot of `SectorBridge`.
-#> Skipping existing snapshot of `TYPE.BONDS`.
-#> Skipping existing snapshot of `TYPE.EQUITY`.
-#> Skipping existing snapshot of `TYPE.OTHERS`.
-#> Skipping existing snapshot of `TYPE.RECEIPTS`.
-#> Skipping existing snapshot of `sector.bridge`.
-#> Warning: Can't write the following datasets:
-#> LoanMarket, LoanMarketClimate
-```
+`take_snapshot()` allows you to take snapshots of multiple datasets. Its
+default behavior is sensible, but conservative and potentially slow (see
+`take_snapshot()`). You may want to change the default arguments.
 
 Use:
 
   - `datasets` to snapshot specific datasets.
-  - `overwrite = TRUE` to overwrite existing snapshots.
+  - Use `destdir` to customize the destination directory.
+  - Use `config` to provide a custom configuration file to
+    `take_snapshot()`.
 
 <!-- end list -->
 
 ``` r
 datasets <- c("RevenueSplit", "EQMarket.Size")
-
-datasets %>% 
-  take_snapshot(overwrite = TRUE)
-#> Wrote 'config.yml' to 'C:/Users/Mauro/git/r2dii/inst/extdata/config.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/git/r2dii/inst/extdata/RevenueSplit.csv'.
-#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/git/r2dii/inst/extdata/EQMarket.Size.csv'.
-```
-
-Use `destdir` to customize the destination directory.
-
-``` r
-datasets %>% 
-  take_snapshot(overwrite = TRUE)
-#> Wrote 'config.yml' to 'C:/Users/Mauro/git/r2dii/inst/extdata/config.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/git/r2dii/inst/extdata/RevenueSplit.csv'.
-#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/git/r2dii/inst/extdata/EQMarket.Size.csv'.
-```
-
-Use `config` to provide a custom configuration file to
-`take_snapshot()`.
-
-``` r
+custom_destdir <- tempdir()
 custom_config <- example_config("config-toy.yml")
-custom_config
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config-toy.yml"
 
-custom_config %>% 
-  show_config()
-#> Registered S3 methods overwritten by 'readr':
-#>   method           from 
-#>   format.col_spec  vroom
-#>   print.col_spec   vroom
-#>   print.collector  vroom
-#>   print.date_names vroom
-#>   print.locale     vroom
-#>   str.col_spec     vroom
-#> default:
-#>   Expect:
-#>    param_a: a
-#>    param_1: 1
-#>    param_true: TRUE
-#>    param_false: FALSE
-#>    param_unset:
-#>   TimeStamps:
-#>     ALD.Timestamp: 3333
-#>     FinancialData.Timestamp: 2018Q3
-
-"DebtMarketClimate" %>% 
-  take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/DebtMarketClimate.csv.gz'.
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config
+)
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
+#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
 ```
 
-  - `options(r2dii_config = <custom_config>)` does the same but affects
-    your R session globally.
+Use:
+
+  - `overwrite = TRUE` to overwrite existing snapshots.
+
+<!-- end list -->
+
+``` r
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config
+)
+#> Skipping existing snapshot of 'config-toy.yml'.
+#> Skipping existing snapshot of `RevenueSplit`.
+#> Skipping existing snapshot of `EQMarket.Size`.
+
+# Overwrite
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  config = custom_config,
+  overwrite = TRUE
+)
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
+#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
+```
+
+  - `options(r2dii_config = <custom_config>)` replaces `config` and
+    affects your R session globally.
 
 <!-- end list -->
 
 ``` r
 restore <- options(r2dii_config = custom_config)
 
-"DebtMarketClimate" %>% 
-  take_snapshot(destdir = tempdir(), overwrite = TRUE)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/config-toy.yml'.
-#> Wrote `DebtMarketClimate` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpOiSXGD/DebtMarketClimate.csv.gz'.
-get_config()
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config-toy.yml"
+take_snapshot(
+  datasets,
+  destdir = custom_destdir, 
+  overwrite = TRUE
+)
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
+#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
 
 options(restore)
-get_config()
-#> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config.yml"
 ```
 
-See also `?edit_config()` to edit the default configuration file.
+[Get
+started](https://2degreesinvesting.github.io/r2dii/articles/r2dii.html)

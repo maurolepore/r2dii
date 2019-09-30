@@ -51,55 +51,8 @@ library(r2dii)
 
 ### Creating snapshots
 
-`take_snapshot()` snapshots all possible datasets, using a default configuration file, a default destination directory, and does not overwrite existing snapshots.
+```{r, child="vignettes/take-snapshot.Rmd"}
 
-```{r}
-take_snapshot()
 ```
 
-Use:
-
-* `datasets` to snapshot specific datasets.
-* `overwrite = TRUE` to overwrite existing snapshots.
-
-```{r}
-datasets <- c("RevenueSplit", "EQMarket.Size")
-
-datasets %>% 
-  take_snapshot(overwrite = TRUE)
-```
-
-Use `destdir` to customize the destination directory.
-
-```{r}
-datasets %>% 
-  take_snapshot(overwrite = TRUE)
-```
-
-Use `config` to provide a custom configuration file to `take_snapshot()`.
-
-```{r}
-custom_config <- example_config("config-toy.yml")
-custom_config
-
-custom_config %>% 
-  show_config()
-
-"DebtMarketClimate" %>% 
-  take_snapshot(destdir = tempdir(), overwrite = TRUE, config = custom_config)
-```
-
-* `options(r2dii_config = <custom_config>)` does the same but affects your R session globally.
-
-```{r}
-restore <- options(r2dii_config = custom_config)
-
-"DebtMarketClimate" %>% 
-  take_snapshot(destdir = tempdir(), overwrite = TRUE)
-get_config()
-
-options(restore)
-get_config()
-```
-
-See also `?edit_config()` to edit the default configuration file.
+[Get started](https://2degreesinvesting.github.io/r2dii/articles/r2dii.html)
