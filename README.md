@@ -69,7 +69,7 @@ Use:
 <!-- end list -->
 
 ``` r
-datasets <- c("RevenueSplit", "EQMarket.Size")
+datasets <- c("RevenueSplit", "BENCH.REGIONS")
 custom_destdir <- tempdir()
 custom_config <- example_config("config-toy.yml")
 
@@ -78,9 +78,9 @@ take_snapshot(
   destdir = custom_destdir, 
   config = custom_config
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
-#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
 ```
 
 Use:
@@ -97,7 +97,7 @@ take_snapshot(
 )
 #> Skipping existing snapshot of 'config-toy.yml'.
 #> Skipping existing snapshot of `RevenueSplit`.
-#> Skipping existing snapshot of `EQMarket.Size`.
+#> Skipping existing snapshot of `BENCH.REGIONS`.
 
 # Overwrite
 take_snapshot(
@@ -106,9 +106,9 @@ take_snapshot(
   config = custom_config,
   overwrite = TRUE
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
-#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
 ```
 
   - `options(r2dii_config = <custom_config>)` replaces `config` and
@@ -124,9 +124,9 @@ take_snapshot(
   destdir = custom_destdir, 
   overwrite = TRUE
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/RevenueSplit.csv'.
-#> Wrote `EQMarket.Size` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpCIcnH1/EQMarket.Size.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
 
 options(restore)
 ```

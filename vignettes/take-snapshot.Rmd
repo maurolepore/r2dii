@@ -11,7 +11,7 @@ Use:
 * Use `config` to provide a custom configuration file to `take_snapshot()`.
 
 ```{r}
-datasets <- c("RevenueSplit", "EQMarket.Size")
+datasets <- c("RevenueSplit", "BENCH.REGIONS")
 custom_destdir <- tempdir()
 custom_config <- example_config("config-toy.yml")
 
