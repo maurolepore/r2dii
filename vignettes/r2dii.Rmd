@@ -41,11 +41,7 @@ A family of functions create robust paths.
 path_dropbox_2dii()
 ```
 
-For this to work, you must have the Dropbox folder of 2dii directly under home (the default location).
-
-```{r}
-fs::dir_ls(fs::path_home(), regexp = "Dropbox")
-```
+(The root directory for you may look like `C:/Users/You/...`)
 
 ## Configuration file
 
