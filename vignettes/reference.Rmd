@@ -84,8 +84,15 @@ These datasets are directly accessible when you attach the package.
 
 ```{r}
 r2dii_reference_concept("demo datasets")
-r2dii_reference_concept("exported datasets")
-r2dii_reference_concept("exported datasets to remove or outsource to data store")
+```
+
+### Dtasets in Reference
+
+These datasets are accessible via functions that get them from a local copy of 2dii's Dropbox folder.
+
+```{r}
+r2dii_reference_concept("datasets in Reference")
+r2dii_reference_concept("datasets in Reference to remove or outsource to data store")
 ```
 
 ### Datastore datasets
