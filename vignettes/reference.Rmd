@@ -86,7 +86,7 @@ These datasets are directly accessible when you attach the package.
 r2dii_reference_concept("demo datasets")
 ```
 
-### Dtasets in Reference
+### Datasets in Reference
 
 These datasets are accessible via functions that get them from a local copy of 2dii's Dropbox folder.
 
