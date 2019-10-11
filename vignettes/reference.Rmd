@@ -78,7 +78,7 @@ r2dii_reference_concept("functions to deal with configuration files")
 r2dii_reference_concept("generic datasets")
 ```
 
-### Exported datasets
+### Demo datasets
 
 These datasets are directly accessible when you attach the package.
 
