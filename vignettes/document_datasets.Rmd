@@ -55,7 +55,7 @@ library(dplyr)
 library(r2dii)
 
 generic_dataset <- "loanbook"
-data_dictionary %>% 
+data_dictionary() %>% 
   filter(dataset == generic_dataset)
 ```
 
