@@ -23,21 +23,13 @@ create robust r2dii’s paths, and to handle configuration files.
 
 ## Installation
 
-To minimize installation errors, ensure your R environment is as
-follows:
-
-  - R version is recent.
-  - All packages are updated (run `update.packages()`; maybe use `ask =
-    FALSE`).
-  - No other R session is running.
-  - Current R session is clean (click *Session \> Restart R*).
-
-Install the development version of r2dii with:
-
 ``` r
 # install.packages("devtools")
 devtools::install_github("2DegreesInvesting/r2dii")
 ```
+
+[How to minimize installation
+errors?](https://gist.github.com/maurolepore/a0187be9d40aee95a43f20a85f4caed6#installation)
 
 ## Example
 
@@ -48,7 +40,6 @@ Attaching r2dii automatically attaches other r2dii packages.
 
 ``` r
 library(r2dii)
-#> Loading required package: r2dii.dataprep
 #> Loading required package: r2dii.dataraw
 #> Loading required package: r2dii.utils
 ```
@@ -78,9 +69,17 @@ take_snapshot(
   destdir = custom_destdir, 
   config = custom_config
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
+#> Registered S3 methods overwritten by 'readr':
+#>   method           from 
+#>   format.col_spec  vroom
+#>   print.col_spec   vroom
+#>   print.collector  vroom
+#>   print.date_names vroom
+#>   print.locale     vroom
+#>   str.col_spec     vroom
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
 ```
 
 Use:
@@ -106,9 +105,9 @@ take_snapshot(
   config = custom_config,
   overwrite = TRUE
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
 ```
 
   - `options(r2dii_config = <custom_config>)` replaces `config` and
@@ -124,9 +123,9 @@ take_snapshot(
   destdir = custom_destdir, 
   overwrite = TRUE
 )
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/RevenueSplit.csv'.
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/Rtmp6BIiCB/BENCH.REGIONS.csv'.
+#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
+#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
+#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
 
 options(restore)
 ```
