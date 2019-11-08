@@ -1,0 +1,132 @@
+---
+title: "Get started"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+As usual, start by using the r2dii package with:
+
+```{r}
+library(r2dii)
+```
+
+## Creating data snapshots
+
+```{r, child="take-snapshot.Rmd"}
+
+```
+
+## Documentation
+
+You can access the high level documentation of the package with `?r2dii.dataraw`. At the bottom you may click _Index_ to access the help files of all topics. As usual, you can access the help file of any topic with `?topic`.
+
+A good way to learn about discover useful features is to run a [Global search](https://2degreesinvesting.github.io/r2dii/articles/reference.html#global-search) using a keyword, or to navigate the table of [Contents](https://2degreesinvesting.github.io/r2dii/articles/reference.html#tocnav). In any case, click on the question mark next to the name of any feature to access its documentation.
+
+## Create paths
+
+A family of functions create robust paths.
+
+```{r}
+path_dropbox_2dii()
+```
+
+(For you, the root directory might be similar to `C:/Users/You/...`)
+
+## Configuration file
+
+A family of functions help you to deal with the configuration file.
+
+`edit_config()` opens the default configuration file so you can edit it.
+
+```r
+if (interactive()) edit_config()
+```
+
+(I'm not in an interactive session so the chunk above won't run.)
+
+`get_config()` outputs a path to a configuration file. By default it outputs the path to a toy configuration file with a warning.
+
+```{r}
+default_config <- get_config()
+```
+
+`show_config()` shows a configuration file.
+
+```{r, comment=""}
+show_config(default_config, n_max = 5)
+```
+
+Most analyses should start by setting a custom configuration file globally with `options()`.
+
+```{r, comment=""}
+your_config <- example_config("config-toy.yml")
+restore <- options(r2dii_config = your_config)
+
+get_config()
+
+show_config(get_config())
+
+options(restore)
+```
+
+## Access configuration parameters and create configuration-sensitive paths
+
+A family of functions are sensitive to the configuration file you use. This includes all functions to access configuration parameters, and some of the functions to create paths.
+
+```{r}
+a_config <- example_config("config_2019Q2.yml")
+restore <- options(r2dii_config = a_config)
+
+FINANCIAL.TIMESTAMP()
+
+another_config <- example_config("config-toy.yml")
+options(r2dii_config = another_config)
+
+FINANCIAL.TIMESTAMP()
+
+options(restore)
+```
+
+## Extending functions to access configuration parameters
+
+Eventually you will likely need to access new configuration parameters. How would you expand this family of functions?
+
+To show you how let me first create a mini configuration file and save it to a temporary directory.
+
+```{r, comment=""}
+# Create an example configuration file
+config <- glue::glue("
+   default:
+     a_field: a_value
+ ")
+
+show_config(config)
+
+# Write the config file to a temporary file
+config_file <- tempfile()
+readr::write_lines(config, config_file)
+```
+
+Use `get_param()` to create new functions to access configuration parameters. Here, for example, `get_a_value()` gets `a_value` from `a_field`:
+
+```{r}
+get_a_value <- get_param("a_field")
+get_a_value(file = config_file)
+```
+
+## Datasets
+
+A family of functions allow you to read local datasets from your local 2dii Dropbox-folder, e.g.:
+
+```{r}
+INDEX.REGIONS()
+
+GROUPS.GOVT()
+```
+
+Remember that the datasets you get may be sensitive to the configuration file. If in doubt, check which file are you using with `get_config()`.
