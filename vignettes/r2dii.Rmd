@@ -124,9 +124,13 @@ get_a_value(file = config_file)
 A family of functions allow you to read local datasets from your local 2dii Dropbox-folder, e.g.:
 
 ```{r}
-INDEX.REGIONS()
-
-GROUPS.GOVT()
+if (dropbox_exists()) {
+  INDEX.REGIONS()
+  
+  GROUPS.GOVT()
+}
 ```
+
+(The chunk above won't run because this article builds on a server where the relevant data is missing.)
 
 Remember that the datasets you get may be sensitive to the configuration file. If in doubt, check which file are you using with `get_config()`.
