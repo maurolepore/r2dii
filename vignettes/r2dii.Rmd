@@ -79,19 +79,15 @@ options(restore)
 A family of functions are sensitive to the configuration file you use. This includes all functions to access configuration parameters, and some of the functions to create paths.
 
 ```{r}
-# Using the default configuration file
-getOption("r2dii_config")
+a_config <- example_config("config_2019Q2.yml")
+restore <- options(r2dii_config = a_config)
 
 FINANCIAL.TIMESTAMP()
-FIN.DATA.PATH()
 
-# Using your configuration file
-your_config <- example_config("config-toy.yml")
-restore <- options(r2dii_config = your_config)
-getOption("r2dii_config")
+another_config <- example_config("config-toy.yml")
+options(r2dii_config = another_config)
 
 FINANCIAL.TIMESTAMP()
-FIN.DATA.PATH()
 
 options(restore)
 ```
