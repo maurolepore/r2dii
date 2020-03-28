@@ -7,7 +7,6 @@ cache: packages
 matrix:
   include:
   - r: release
-    after_success: Rscript -e 'covr::coveralls()'
     before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
     deploy:
       provider: script
