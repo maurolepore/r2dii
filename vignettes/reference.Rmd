@@ -21,12 +21,18 @@ url_r2dii <- "https://2degreesinvesting.github.io/"
 search_default <- "dataset"
 
 r2dii_reference_concept <- function(x) {
-  reference_concept(x, url = url_r2dii, packages = r2dii_pkgs()) %>% 
-    custom_table()
+  custom_table(
+    reference_concept(
+      x, url = url_r2dii, packages = r2dii.utils::r2dii_packages()
+    )
+  )
 }
 r2dii_reference_package <- function(x) {
-  reference_package(x, url = url_r2dii, packages = r2dii_pkgs()) %>% 
-    custom_table()
+  custom_table(
+    reference_package(
+      x, url = url_r2dii, packages = r2dii.utils::r2dii_packages()
+    )
+  )
 }
 custom_table <- function(x) {
   x %>% 
