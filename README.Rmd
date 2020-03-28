@@ -18,8 +18,7 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/r2dii)](https://CRAN.R-project.org/package=r2dii)
 [![Travis build status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
-[![R build status](https://github.com/2degreesinvesting/r2dii/workflows/R-CMD-check/badge.svg)](https://github.com/2degreesinvesting/r2dii/actions)
-[![Codecov test coverage](https://codecov.io/gh/2degreesinvesting/r2dii/branch/master/graph/badge.svg)](https://codecov.io/gh/2degreesinvesting/r2dii?branch=master)
+[![Travis build status](https://travis-ci.com/2degreesinvesting/r2dii.svg?branch=master)](https://travis-ci.com/2degreesinvesting/r2dii)
 <!-- badges: end -->
 
 [2 `r r2dii.utils::degrees()` Investing Initiative](https://2degrees-investing.org/) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the meta package r2dii. Run `library(r2dii)` to see the name of all packages in r2dii. Learn more about each package at "https://2degreesinvesting.github.io/PACKAGE/" -- for example, the website of the package r2dii.data is at <https://2degreesinvesting.github.io/r2dii.data/>.

@@ -10,8 +10,8 @@
 status](https://www.r-pkg.org/badges/version/r2dii)](https://CRAN.R-project.org/package=r2dii)
 [![Travis build
 status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
-[![R build
-status](https://github.com/2degreesinvesting/r2dii/workflows/R-CMD-check/badge.svg)](https://github.com/2degreesinvesting/r2dii/actions)
+[![Travis build
+status](https://travis-ci.com/2degreesinvesting/r2dii.svg?branch=master)](https://travis-ci.com/2degreesinvesting/r2dii)
 <!-- badges: end -->
 
 [2 ° Investing Initiative](https://2degrees-investing.org/) maintains a
@@ -73,20 +73,20 @@ It also includes datasets for examples and tests.
 ``` r
 # Column definitions for all datasets
 data_dictionary
-#> # A tibble: 61 x 4
-#>    dataset  column          typeof   definition                                 
-#>    <chr>    <chr>           <chr>    <chr>                                      
-#>  1 ald_demo ald_timestamp   charact… Date at which asset data was pulled from d…
-#>  2 ald_demo country_of_dom… charact… Country where company is registered        
-#>  3 ald_demo emission_factor double   Company level emission factor of the techn…
-#>  4 ald_demo name_company    charact… The name of the company owning the asset   
-#>  5 ald_demo number_of_asse… integer  Number of assets of a given technology own…
-#>  6 ald_demo plant_location  charact… Country where asset is located             
-#>  7 ald_demo production      double   Company level production of the technology 
-#>  8 ald_demo production_unit charact… The units that production is measured in   
-#>  9 ald_demo sector          charact… Sector to which the asset belongs          
-#> 10 ald_demo technology      charact… Technology implemented by the asset        
-#> # … with 51 more rows
+#> # A tibble: 63 x 4
+#>    dataset  column             typeof  definition                               
+#>    <chr>    <chr>              <chr>   <chr>                                    
+#>  1 ald_demo ald_timestamp      charac… Date at which asset data was pulled from…
+#>  2 ald_demo country_of_domici… charac… Country where company is registered      
+#>  3 ald_demo emission_factor    double  Company level emission factor of the tec…
+#>  4 ald_demo is_ultimate_liste… logical Flag if company is the listed ultimate p…
+#>  5 ald_demo is_ultimate_owner  logical Flag if company is the ultimate parent i…
+#>  6 ald_demo name_company       charac… The name of the company owning the asset 
+#>  7 ald_demo number_of_assets   integer Number of assets of a given technology o…
+#>  8 ald_demo plant_location     charac… Country where asset is located           
+#>  9 ald_demo production         double  Company level production of the technolo…
+#> 10 ald_demo production_unit    charac… The units that production is measured in 
+#> # … with 53 more rows
 
 # Some example datasets
 loanbook_demo
@@ -112,7 +112,7 @@ loanbook_demo
 #> #   flag_project_finance_loan <chr>, name_project <lgl>,
 #> #   lei_direct_loantaker <lgl>, isin_direct_loantaker <lgl>
 ald_demo
-#> # A tibble: 17,368 x 11
+#> # A tibble: 17,368 x 13
 #>    name_company sector technology production_unit  year production
 #>    <chr>        <chr>  <chr>      <chr>           <dbl>      <dbl>
 #>  1 aba hydropo… power  hydrocap   MW               2013    133340.
@@ -125,8 +125,9 @@ ald_demo
 #>  8 aba hydropo… power  hydrocap   MW               2020    121032.
 #>  9 aba hydropo… power  hydrocap   MW               2021    119274.
 #> 10 aba hydropo… power  hydrocap   MW               2022    117515.
-#> # … with 17,358 more rows, and 5 more variables: emission_factor <dbl>,
+#> # … with 17,358 more rows, and 7 more variables: emission_factor <dbl>,
 #> #   country_of_domicile <chr>, plant_location <chr>, number_of_assets <dbl>,
+#> #   is_ultimate_owner <lgl>, is_ultimate_listed_owner <lgl>,
 #> #   ald_timestamp <chr>
 ```
 
