@@ -7,3 +7,6 @@
 ^pkgdown$
 ^\.travis\.yml$
 ^\.github$
+^docs$
+^vignettes/articles$
+^codecov\.yml$

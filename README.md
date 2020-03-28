@@ -10,16 +10,17 @@
 status](https://www.r-pkg.org/badges/version/r2dii)](https://CRAN.R-project.org/package=r2dii)
 [![Travis build
 status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
+[![R build
+status](https://github.com/2degreesinvesting/r2dii/workflows/R-CMD-check/badge.svg)](https://github.com/2degreesinvesting/r2dii/actions)
 <!-- badges: end -->
 
-[2 ° Investing Initiative](https://2degrees-investing.org/) (2dii)
-maintains a collection or R packages called r2dii. To help you install
-and use all those packages at once, we also built the r2dii (meta)
-package. The r2dii package is the only package most users need to know
-about. Contact us if you need more details.
-
-Currently, r2dii allows you to access raw or lightly-prepared data, to
-create robust r2dii’s paths, and to handle configuration files.
+[2 ° Investing Initiative](https://2degrees-investing.org/) maintains a
+collection or R packages called r2dii. To help you install and use all
+those packages at once, we also built the meta package r2dii. Run
+`library(r2dii)` to see the name of all packages in r2dii. Learn more
+about each package at “<https://2degreesinvesting.github.io/PACKAGE/>” –
+for example, the website of the package r2dii.data is at
+<https://2degreesinvesting.github.io/r2dii.data/>.
 
 ## Installation
 
@@ -40,95 +41,121 @@ Attaching r2dii automatically attaches other r2dii packages.
 
 ``` r
 library(r2dii)
+#> Loading required package: r2dii.data
 #> Loading required package: r2dii.dataraw
 #> Loading required package: r2dii.utils
+#> Loading required package: r2dii.match
 ```
 
-### Creating snapshots
-
-`take_snapshot()` allows you to take snapshots of multiple datasets. Its
-default behavior is sensible, but conservative and potentially slow (see
-`take_snapshot()`). You may want to change the default arguments.
-
-Use:
-
-  - `datasets` to snapshot specific datasets.
-  - Use `destdir` to customize the destination directory.
-  - Use `config` to provide a custom configuration file to
-    `take_snapshot()`.
-
-<!-- end list -->
+r2dii includes some utility functions.
 
 ``` r
-datasets <- c("RevenueSplit", "BENCH.REGIONS")
-custom_destdir <- tempdir()
-custom_config <- example_config("config-toy.yml")
+degrees()
+#> [1] "°"
+sprintf("Welcome to 2%s Investing Initiative!", degrees())
+#> [1] "Welcome to 2° Investing Initiative!"
 
-take_snapshot(
-  datasets,
-  destdir = custom_destdir, 
-  config = custom_config
-)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
-#> Registered S3 methods overwritten by 'readr':
-#>   method           from 
-#>   format.col_spec  vroom
-#>   print.col_spec   vroom
-#>   print.collector  vroom
-#>   print.date_names vroom
-#>   print.locale     vroom
-#>   str.col_spec     vroom
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
+clean_column_names(dplyr::group_by(tibble::tibble(x.x = 1), x.x))
+#> # A tibble: 1 x 1
+#> # Groups:   x_x [1]
+#>     x_x
+#>   <dbl>
+#> 1     1
+
+# Fails
+check_crucial_names(c(x = 1), expected_names = c("x", "y"))
+#> Error: Must have missing names:
+#> y
 ```
 
-Use:
-
-  - `overwrite = TRUE` to overwrite existing snapshots.
-
-<!-- end list -->
+It also includes datasets for examples and tests.
 
 ``` r
-take_snapshot(
-  datasets,
-  destdir = custom_destdir, 
-  config = custom_config
-)
-#> Skipping existing snapshot of 'config-toy.yml'.
-#> Skipping existing snapshot of `RevenueSplit`.
-#> Skipping existing snapshot of `BENCH.REGIONS`.
+# Column definitions for all datasets
+data_dictionary
+#> # A tibble: 61 x 4
+#>    dataset  column          typeof   definition                                 
+#>    <chr>    <chr>           <chr>    <chr>                                      
+#>  1 ald_demo ald_timestamp   charact… Date at which asset data was pulled from d…
+#>  2 ald_demo country_of_dom… charact… Country where company is registered        
+#>  3 ald_demo emission_factor double   Company level emission factor of the techn…
+#>  4 ald_demo name_company    charact… The name of the company owning the asset   
+#>  5 ald_demo number_of_asse… integer  Number of assets of a given technology own…
+#>  6 ald_demo plant_location  charact… Country where asset is located             
+#>  7 ald_demo production      double   Company level production of the technology 
+#>  8 ald_demo production_unit charact… The units that production is measured in   
+#>  9 ald_demo sector          charact… Sector to which the asset belongs          
+#> 10 ald_demo technology      charact… Technology implemented by the asset        
+#> # … with 51 more rows
 
-# Overwrite
-take_snapshot(
-  datasets,
-  destdir = custom_destdir, 
-  config = custom_config,
-  overwrite = TRUE
-)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
+# Some example datasets
+loanbook_demo
+#> # A tibble: 320 x 19
+#>    id_loan id_direct_loant… name_direct_loa… id_intermediate… name_intermedia…
+#>    <chr>   <chr>            <chr>            <chr>            <chr>           
+#>  1 L1      C294             Yuamen Xinneng … <NA>             <NA>            
+#>  2 L2      C293             Yuamen Changyua… <NA>             <NA>            
+#>  3 L3      C292             Yuama Ethanol L… IP5              Yuama Inc.      
+#>  4 L4      C299             Yudaksel Holdin… <NA>             <NA>            
+#>  5 L5      C305             Yukon Energy Co… <NA>             <NA>            
+#>  6 L6      C304             Yukon Developme… <NA>             <NA>            
+#>  7 L7      C227             Yaugoa-Zapadnay… <NA>             <NA>            
+#>  8 L8      C303             Yueyang City Co… <NA>             <NA>            
+#>  9 L9      C301             Yuedxiu Corp One IP10             Yuedxiu Group   
+#> 10 L10     C302             Yuexi County AA… <NA>             <NA>            
+#> # … with 310 more rows, and 14 more variables: id_ultimate_parent <chr>,
+#> #   name_ultimate_parent <chr>, loan_size_outstanding <dbl>,
+#> #   loan_size_outstanding_currency <chr>, loan_size_credit_limit <dbl>,
+#> #   loan_size_credit_limit_currency <chr>, sector_classification_system <chr>,
+#> #   sector_classification_input_type <chr>,
+#> #   sector_classification_direct_loantaker <dbl>, fi_type <chr>,
+#> #   flag_project_finance_loan <chr>, name_project <lgl>,
+#> #   lei_direct_loantaker <lgl>, isin_direct_loantaker <lgl>
+ald_demo
+#> # A tibble: 17,368 x 11
+#>    name_company sector technology production_unit  year production
+#>    <chr>        <chr>  <chr>      <chr>           <dbl>      <dbl>
+#>  1 aba hydropo… power  hydrocap   MW               2013    133340.
+#>  2 aba hydropo… power  hydrocap   MW               2014    131582.
+#>  3 aba hydropo… power  hydrocap   MW               2015    129824.
+#>  4 aba hydropo… power  hydrocap   MW               2016    128065.
+#>  5 aba hydropo… power  hydrocap   MW               2017    126307.
+#>  6 aba hydropo… power  hydrocap   MW               2018    124549.
+#>  7 aba hydropo… power  hydrocap   MW               2019    122790.
+#>  8 aba hydropo… power  hydrocap   MW               2020    121032.
+#>  9 aba hydropo… power  hydrocap   MW               2021    119274.
+#> 10 aba hydropo… power  hydrocap   MW               2022    117515.
+#> # … with 17,358 more rows, and 5 more variables: emission_factor <dbl>,
+#> #   country_of_domicile <chr>, plant_location <chr>, number_of_assets <dbl>,
+#> #   ald_timestamp <chr>
 ```
 
-  - `options(r2dii_config = <custom_config>)` replaces `config` and
-    affects your R session globally.
-
-<!-- end list -->
+And it provides tools to match financial portfolios with climate data.
 
 ``` r
-restore <- options(r2dii_config = custom_config)
-
-take_snapshot(
-  datasets,
-  destdir = custom_destdir, 
-  overwrite = TRUE
-)
-#> Wrote 'config-toy.yml' to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/config-toy.yml'.
-#> Wrote `RevenueSplit` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/RevenueSplit.csv'.
-#> Wrote `BENCH.REGIONS` to 'C:/Users/Mauro/AppData/Local/Temp/RtmpsZ91jB/BENCH.REGIONS.csv'.
-
-options(restore)
+match_name(loanbook_demo, ald_demo) %>% 
+  prioritize()
+#> # A tibble: 267 x 27
+#>    id_loan id_direct_loant… name_direct_loa… id_intermediate… name_intermedia…
+#>    <chr>   <chr>            <chr>            <chr>            <chr>           
+#>  1 L151    C168             Shaanxi Auto     <NA>             <NA>            
+#>  2 L152    C169             Shandong Auto    <NA>             <NA>            
+#>  3 L153    C170             Shandong Kama    <NA>             <NA>            
+#>  4 L154    C171             Shandong Tangju… <NA>             <NA>            
+#>  5 L155    C173             Shanghai Automo… <NA>             <NA>            
+#>  6 L156    C176             Shanxi Dayun     <NA>             <NA>            
+#>  7 L157    C178             Shenyang Polars… <NA>             <NA>            
+#>  8 L158    C180             Shuanghuan Auto  <NA>             <NA>            
+#>  9 L159    C182             Sichuan Auto     <NA>             <NA>            
+#> 10 L160    C184             Singulato        <NA>             <NA>            
+#> # … with 257 more rows, and 22 more variables: id_ultimate_parent <chr>,
+#> #   name_ultimate_parent <chr>, loan_size_outstanding <dbl>,
+#> #   loan_size_outstanding_currency <chr>, loan_size_credit_limit <dbl>,
+#> #   loan_size_credit_limit_currency <chr>, sector_classification_system <chr>,
+#> #   sector_classification_input_type <chr>,
+#> #   sector_classification_direct_loantaker <dbl>, fi_type <chr>,
+#> #   flag_project_finance_loan <chr>, name_project <lgl>,
+#> #   lei_direct_loantaker <lgl>, isin_direct_loantaker <lgl>, id_2dii <chr>,
+#> #   level <chr>, sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>,
+#> #   score <dbl>, source <chr>
 ```
-
-[Get
-started](https://2degreesinvesting.github.io/r2dii/articles/r2dii.html)

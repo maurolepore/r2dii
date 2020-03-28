@@ -32,17 +32,13 @@ navbar:
   - text: "Reference"
     href: articles/reference.html
 
-  - text: "Articles"
+  - text: "News"
     menu:
-    - text: "Documenting r2dii datasets"
-      href: articles/document_datasets.html
-
-  - text: "Changelog"
-    menu:
-    - text: "r2dii.dataraw"
-      href: https://2degreesinvesting.github.io/r2dii.dataraw/news/index.html
-    - text: "r2dii.utils"
-      href: https://2degreesinvesting.github.io/r2dii.utils/news/index.html
+    - text: "Release notes"
+    - text: "r2dii.data 0.0.3"
+      href: articles/r2dii-data-0-0-3.html
+    - text: "r2dii.match 0.0.1"
+      href: articles/r2dii-match-0-0-1.html
 
   right:
     - icon: fa-gavel

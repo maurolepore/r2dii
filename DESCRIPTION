@@ -37,16 +37,23 @@ License: GPL-3 + file LICENSE
 URL: https://github.com/2DegreesInvesting/r2dii
 BugReports: https://github.com/2DegreesInvesting/r2dii/issues
 Depends: 
+    r2dii.data,
     r2dii.dataraw,
+    r2dii.match,
     r2dii.utils
+Imports: 
+    utils
 Suggests: 
     DT,
     kableExtra,
     pkgdown,
-    rmarkdown
+    rmarkdown,
+    spelling,
+    covr
 Remotes: 
     2degreesinvesting/r2dii.dataraw,
     2degreesinvesting/r2dii.utils
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 RoxygenNote: 7.1.0

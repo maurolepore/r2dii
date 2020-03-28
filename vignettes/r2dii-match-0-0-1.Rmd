@@ -1,0 +1,25 @@
+---
+title: "r2dii.match 0.0.1"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+We're happy to announce that r2dii.match is now available on CRAN. r2dii.match provides tools to match financial portfolios with climate data. Install it with:
+
+```r
+install.packages("r2dii.match")
+```
+
+## Features
+
+TODO
+
+```{r setup}
+library(r2dii.match)
+```

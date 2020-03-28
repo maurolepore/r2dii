@@ -7,6 +7,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  error = TRUE,
   fig.path = "man/figures/README-"
 )
 ```
@@ -18,11 +19,10 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/r2dii)](https://CRAN.R-project.org/package=r2dii)
 [![Travis build status](https://travis-ci.org/2DegreesInvesting/r2dii.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii)
 [![R build status](https://github.com/2degreesinvesting/r2dii/workflows/R-CMD-check/badge.svg)](https://github.com/2degreesinvesting/r2dii/actions)
+[![Codecov test coverage](https://codecov.io/gh/2degreesinvesting/r2dii/branch/master/graph/badge.svg)](https://codecov.io/gh/2degreesinvesting/r2dii?branch=master)
 <!-- badges: end -->
 
-[2 `r r2dii.utils::degrees()` Investing Initiative](https://2degrees-investing.org/) (2dii) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the r2dii (meta) package. The r2dii package is the only package most users need to know about. Contact us if you need more details.
-
-Currently, r2dii allows you to access raw or lightly-prepared data, to create robust r2dii's paths, and to handle configuration files.
+[2 `r r2dii.utils::degrees()` Investing Initiative](https://2degrees-investing.org/) maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the meta package r2dii. Run `library(r2dii)` to see the name of all packages in r2dii. Learn more about each package at "https://2degreesinvesting.github.io/PACKAGE/" -- for example, the website of the package r2dii.data is at <https://2degreesinvesting.github.io/r2dii.data/>.
 
 ## Installation
 
@@ -39,14 +39,37 @@ These examples provide a high level overview of the main features. For more deta
 
 Attaching r2dii automatically attaches other r2dii packages.
 
-```{r example}
+```{r}
 library(r2dii)
 ```
 
-### Creating snapshots
+r2dii includes some utility functions.
 
-```{r, child="vignettes/take-snapshot.Rmd"}
+```{r}
+degrees()
+sprintf("Welcome to 2%s Investing Initiative!", degrees())
 
+clean_column_names(dplyr::group_by(tibble::tibble(x.x = 1), x.x))
+
+# Fails
+check_crucial_names(c(x = 1), expected_names = c("x", "y"))
 ```
 
-[Get started](https://2degreesinvesting.github.io/r2dii/articles/r2dii.html)
+It also includes datasets for examples and tests.
+
+```{r}
+# Column definitions for all datasets
+data_dictionary
+
+# Some example datasets
+loanbook_demo
+ald_demo
+```
+
+And it provides tools to match financial portfolios with climate data.
+
+```{r}
+match_name(loanbook_demo, ald_demo) %>% 
+  prioritize()
+```
+

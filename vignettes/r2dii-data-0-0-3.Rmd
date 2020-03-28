@@ -1,0 +1,25 @@
+---
+title: "r2dii.data 0.0.4"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+We're excited to announce that r2dii.data is now available on CRAN. r2dii.data provides datasets to align financial portfolios with climate data. Install it with:
+
+```r
+install.packages("r2dii.data")
+```
+
+## Datasets
+
+TODO
+
+```{r setup}
+library(r2dii.data)
+```

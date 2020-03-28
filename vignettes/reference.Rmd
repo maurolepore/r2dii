@@ -21,11 +21,11 @@ url_r2dii <- "https://2degreesinvesting.github.io/"
 search_default <- "dataset"
 
 r2dii_reference_concept <- function(x) {
-  reference_concept(x, url = url_r2dii, packages = r2dii_packages()) %>% 
+  reference_concept(x, url = url_r2dii, packages = r2dii_pkgs()) %>% 
     custom_table()
 }
 r2dii_reference_package <- function(x) {
-  reference_package(x, url = url_r2dii, packages = r2dii_packages()) %>% 
+  reference_package(x, url = url_r2dii, packages = r2dii_pkgs()) %>% 
     custom_table()
 }
 custom_table <- function(x) {
@@ -48,7 +48,7 @@ Search globally in the search box below, or navigate the index clicking the menu
 ### Global search
 
 ```{r global-search, warning=FALSE}
-r2dii_packages() %>% 
+r2dii_pkgs() %>% 
   purrr::map_dfr(reference_package, url = url_r2dii) %>% 
   select(-package, -concept) %>% 
   unique() %>% 
@@ -64,6 +64,19 @@ r2dii_packages() %>%
   )
 ```
 
+
+### Match financial portfolios with climate data
+
+```{r}
+r2dii_reference_package("r2dii.match")
+```
+
+### Datasets for examples and tests
+
+```{r}
+r2dii_reference_package("r2dii.data")
+```
+
 ### Handle dataset snapshots
 
 ```{r}
@@ -74,12 +87,6 @@ r2dii_reference_concept("handle snapshots")
 
 ```{r}
 r2dii_reference_concept("functions to deal with configuration files")
-```
-
-### Documentation for generic datasets
-
-```{r}
-r2dii_reference_concept("generic datasets")
 ```
 
 ### Demo datasets
