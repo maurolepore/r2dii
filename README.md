@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <img src="https://i.imgur.com/3jITMq8.png" align="right" height=40 /> Install and use r2dii packages
+# r2dii <a href='https://github.com/2DegreesInvesting/r2dii'><img src='https://imgur.com/A5ASZPE.png' align='right' height='43' /></a>
 
 <!-- badges: start -->
 
@@ -73,7 +73,7 @@ It also includes datasets for examples and tests.
 ``` r
 # Column definitions for all datasets
 data_dictionary
-#> # A tibble: 63 x 4
+#> # A tibble: 70 x 4
 #>    dataset  column             typeof  definition                               
 #>    <chr>    <chr>              <chr>   <chr>                                    
 #>  1 ald_demo ald_timestamp      charac… Date at which asset data was pulled from…
@@ -86,7 +86,7 @@ data_dictionary
 #>  8 ald_demo plant_location     charac… Country where asset is located           
 #>  9 ald_demo production         double  Company level production of the technolo…
 #> 10 ald_demo production_unit    charac… The units that production is measured in 
-#> # … with 53 more rows
+#> # … with 60 more rows
 
 # Some example datasets
 loanbook_demo
