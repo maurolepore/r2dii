@@ -32,14 +32,6 @@ navbar:
   - text: "Reference"
     href: articles/reference.html
 
-  - text: "News"
-    menu:
-    - text: "Release notes"
-    - text: "r2dii.data 0.0.3"
-      href: articles/r2dii-data-0-0-3.html
-    - text: "r2dii.match 0.0.1"
-      href: articles/r2dii-match-0-0-1.html
-
   right:
     - icon: fa-gavel
       href: https://github.com/maurolepore/
