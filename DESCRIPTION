@@ -34,7 +34,8 @@ Authors@R:
 Description: Install and use multiple r2dii packages at once.
     Visit <https://2degrees-investing.org/>.
 License: GPL-3 + file LICENSE
-URL: https://github.com/2DegreesInvesting/r2dii
+URL: https://github.com/2DegreesInvesting/r2dii,
+    https://2degreesinvesting.github.io/r2dii/
 BugReports: https://github.com/2DegreesInvesting/r2dii/issues
 Depends: 
     r2dii.data,
@@ -44,12 +45,12 @@ Depends:
 Imports: 
     utils
 Suggests: 
+    covr,
     DT,
     kableExtra,
     pkgdown,
     rmarkdown,
-    spelling,
-    covr
+    spelling
 Remotes: 
     2degreesinvesting/r2dii.dataraw,
     2degreesinvesting/r2dii.utils
