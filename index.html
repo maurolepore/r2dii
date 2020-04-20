@@ -44,22 +44,6 @@
 <li>
   <a href="articles/reference.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    News
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Release notes</li>
-    <li>
-      <a href="articles/r2dii-data-0-0-3.html">r2dii.data 0.0.3</a>
-    </li>
-    <li>
-      <a href="articles/r2dii-match-0-0-1.html">r2dii.match 0.0.1</a>
-    </li>
-  </ul>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -86,17 +70,18 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="-install-and-use-r2dii-packages" class="section level1">
+<div id="r2dii-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#-install-and-use-r2dii-packages" class="anchor"></a><img src="https://i.imgur.com/3jITMq8.png" align="right" height="40"> Install and use r2dii packages</h1></div>
+<a href="#r2dii-" class="anchor"></a>r2dii <a href="https://github.com/2DegreesInvesting/r2dii"><img src="https://imgur.com/A5ASZPE.png" align="right" height="43"></a>
+</h1></div>
 <!-- badges: start -->
 
-<p><a href="https://2degrees-investing.org/">2 Â° Investing Initiative</a> maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the meta package r2dii. Run <code><a href="https://rdrr.io/pkg/r2dii/man">library(r2dii)</a></code> to see the name of all packages in r2dii. Learn more about each package at â<a href="https://2degreesinvesting.github.io/PACKAGE/" class="uri">https://2degreesinvesting.github.io/PACKAGE/</a>â â for example, the website of the package r2dii.data is at <a href="https://2degreesinvesting.github.io/r2dii.data/" class="uri">https://2degreesinvesting.github.io/r2dii.data/</a>.</p>
+<p><a href="https://2degrees-investing.org/">2 ° Investing Initiative</a> maintains a collection or R packages called r2dii. To help you install and use all those packages at once, we also built the meta package r2dii. Run <code><a href="https://rdrr.io/pkg/r2dii/man">library(r2dii)</a></code> to see the name of all packages in r2dii. Learn more about each package at a link of the form <code>https://2degreesinvesting.github.io/&lt;package name goes here&gt;/</code> – for example, <a href="https://2degreesinvesting.github.io/r2dii.data/" class="uri">https://2degreesinvesting.github.io/r2dii.data/</a>, or <a href="https://2degreesinvesting.github.io/r2dii.match/" class="uri">https://2degreesinvesting.github.io/r2dii.match/</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"2DegreesInvesting/r2dii"</span>)</pre></div>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"2DegreesInvesting/r2dii"</span>)</pre></div>
 <p><a href="https://gist.github.com/maurolepore/a0187be9d40aee95a43f20a85f4caed6#installation">How to minimize installation errors?</a></p>
 </div>
 <div id="example" class="section level2">
@@ -111,9 +96,9 @@
 <span class="co">#&gt; Loading required package: r2dii.match</span></pre></div>
 <p>r2dii includes some utility functions.</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu">degrees</span>()
-<span class="co">#&gt; [1] "Â°"</span>
+<span class="co">#&gt; [1] "°"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"Welcome to 2%s Investing Initiative!"</span>, <span class="fu">degrees</span>())
-<span class="co">#&gt; [1] "Welcome to 2Â° Investing Initiative!"</span>
+<span class="co">#&gt; [1] "Welcome to 2° Investing Initiative!"</span>
 
 <span class="fu">clean_column_names</span>(<span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw pkg">tibble</span><span class="kw ns">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span>(<span class="kw">x.x</span> <span class="kw">=</span> <span class="fl">1</span>), <span class="no">x.x</span>))
 <span class="co">#&gt; # A tibble: 1 x 1</span>
@@ -129,37 +114,37 @@
 <p>It also includes datasets for examples and tests.</p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="co"># Column definitions for all datasets</span>
 <span class="no">data_dictionary</span>
-<span class="co">#&gt; # A tibble: 63 x 4</span>
+<span class="co">#&gt; # A tibble: 70 x 4</span>
 <span class="co">#&gt;    dataset  column             typeof  definition                               </span>
 <span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                    </span>
-<span class="co">#&gt;  1 ald_demo ald_timestamp      characâ¦ Date at which asset data was pulled fromâ¦</span>
-<span class="co">#&gt;  2 ald_demo country_of_domiciâ¦ characâ¦ Country where company is registered      </span>
-<span class="co">#&gt;  3 ald_demo emission_factor    double  Company level emission factor of the tecâ¦</span>
-<span class="co">#&gt;  4 ald_demo is_ultimate_listeâ¦ logical Flag if company is the listed ultimate pâ¦</span>
-<span class="co">#&gt;  5 ald_demo is_ultimate_owner  logical Flag if company is the ultimate parent iâ¦</span>
-<span class="co">#&gt;  6 ald_demo name_company       characâ¦ The name of the company owning the asset </span>
-<span class="co">#&gt;  7 ald_demo number_of_assets   integer Number of assets of a given technology oâ¦</span>
-<span class="co">#&gt;  8 ald_demo plant_location     characâ¦ Country where asset is located           </span>
-<span class="co">#&gt;  9 ald_demo production         double  Company level production of the technoloâ¦</span>
-<span class="co">#&gt; 10 ald_demo production_unit    characâ¦ The units that production is measured in </span>
-<span class="co">#&gt; # â¦ with 53 more rows</span>
+<span class="co">#&gt;  1 ald_demo ald_timestamp      charac… Date at which asset data was pulled from…</span>
+<span class="co">#&gt;  2 ald_demo country_of_domici… charac… Country where company is registered      </span>
+<span class="co">#&gt;  3 ald_demo emission_factor    double  Company level emission factor of the tec…</span>
+<span class="co">#&gt;  4 ald_demo is_ultimate_liste… logical Flag if company is the listed ultimate p…</span>
+<span class="co">#&gt;  5 ald_demo is_ultimate_owner  logical Flag if company is the ultimate parent i…</span>
+<span class="co">#&gt;  6 ald_demo name_company       charac… The name of the company owning the asset </span>
+<span class="co">#&gt;  7 ald_demo number_of_assets   integer Number of assets of a given technology o…</span>
+<span class="co">#&gt;  8 ald_demo plant_location     charac… Country where asset is located           </span>
+<span class="co">#&gt;  9 ald_demo production         double  Company level production of the technolo…</span>
+<span class="co">#&gt; 10 ald_demo production_unit    charac… The units that production is measured in </span>
+<span class="co">#&gt; # … with 60 more rows</span>
 
 <span class="co"># Some example datasets</span>
 <span class="no">loanbook_demo</span>
 <span class="co">#&gt; # A tibble: 320 x 19</span>
-<span class="co">#&gt;    id_loan id_direct_loantâ¦ name_direct_loaâ¦ id_intermediateâ¦ name_intermediaâ¦</span>
+<span class="co">#&gt;    id_loan id_direct_loant… name_direct_loa… id_intermediate… name_intermedia…</span>
 <span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           </span>
-<span class="co">#&gt;  1 L1      C294             Yuamen Xinneng â¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  2 L2      C293             Yuamen Changyuaâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  3 L3      C292             Yuama Ethanol Lâ¦ IP5              Yuama Inc.      </span>
-<span class="co">#&gt;  4 L4      C299             Yudaksel Holdinâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  5 L5      C305             Yukon Energy Coâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  6 L6      C304             Yukon Developmeâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  7 L7      C227             Yaugoa-Zapadnayâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  8 L8      C303             Yueyang City Coâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  1 L1      C294             Yuamen Xinneng … &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  2 L2      C293             Yuamen Changyua… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  3 L3      C292             Yuama Ethanol L… IP5              Yuama Inc.      </span>
+<span class="co">#&gt;  4 L4      C299             Yudaksel Holdin… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  5 L5      C305             Yukon Energy Co… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  6 L6      C304             Yukon Developme… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  7 L7      C227             Yaugoa-Zapadnay… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  8 L8      C303             Yueyang City Co… &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  9 L9      C301             Yuedxiu Corp One IP10             Yuedxiu Group   </span>
-<span class="co">#&gt; 10 L10     C302             Yuexi County AAâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt; # â¦ with 310 more rows, and 14 more variables: id_ultimate_parent &lt;chr&gt;,</span>
+<span class="co">#&gt; 10 L10     C302             Yuexi County AA… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt; # … with 310 more rows, and 14 more variables: id_ultimate_parent &lt;chr&gt;,</span>
 <span class="co">#&gt; #   name_ultimate_parent &lt;chr&gt;, loan_size_outstanding &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   loan_size_outstanding_currency &lt;chr&gt;, loan_size_credit_limit &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   loan_size_credit_limit_currency &lt;chr&gt;, sector_classification_system &lt;chr&gt;,</span>
@@ -171,17 +156,17 @@
 <span class="co">#&gt; # A tibble: 17,368 x 13</span>
 <span class="co">#&gt;    name_company sector technology production_unit  year production</span>
 <span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 aba hydropoâ¦ power  hydrocap   MW               2013    133340.</span>
-<span class="co">#&gt;  2 aba hydropoâ¦ power  hydrocap   MW               2014    131582.</span>
-<span class="co">#&gt;  3 aba hydropoâ¦ power  hydrocap   MW               2015    129824.</span>
-<span class="co">#&gt;  4 aba hydropoâ¦ power  hydrocap   MW               2016    128065.</span>
-<span class="co">#&gt;  5 aba hydropoâ¦ power  hydrocap   MW               2017    126307.</span>
-<span class="co">#&gt;  6 aba hydropoâ¦ power  hydrocap   MW               2018    124549.</span>
-<span class="co">#&gt;  7 aba hydropoâ¦ power  hydrocap   MW               2019    122790.</span>
-<span class="co">#&gt;  8 aba hydropoâ¦ power  hydrocap   MW               2020    121032.</span>
-<span class="co">#&gt;  9 aba hydropoâ¦ power  hydrocap   MW               2021    119274.</span>
-<span class="co">#&gt; 10 aba hydropoâ¦ power  hydrocap   MW               2022    117515.</span>
-<span class="co">#&gt; # â¦ with 17,358 more rows, and 7 more variables: emission_factor &lt;dbl&gt;,</span>
+<span class="co">#&gt;  1 aba hydropo… power  hydrocap   MW               2013    133340.</span>
+<span class="co">#&gt;  2 aba hydropo… power  hydrocap   MW               2014    131582.</span>
+<span class="co">#&gt;  3 aba hydropo… power  hydrocap   MW               2015    129824.</span>
+<span class="co">#&gt;  4 aba hydropo… power  hydrocap   MW               2016    128065.</span>
+<span class="co">#&gt;  5 aba hydropo… power  hydrocap   MW               2017    126307.</span>
+<span class="co">#&gt;  6 aba hydropo… power  hydrocap   MW               2018    124549.</span>
+<span class="co">#&gt;  7 aba hydropo… power  hydrocap   MW               2019    122790.</span>
+<span class="co">#&gt;  8 aba hydropo… power  hydrocap   MW               2020    121032.</span>
+<span class="co">#&gt;  9 aba hydropo… power  hydrocap   MW               2021    119274.</span>
+<span class="co">#&gt; 10 aba hydropo… power  hydrocap   MW               2022    117515.</span>
+<span class="co">#&gt; # … with 17,358 more rows, and 7 more variables: emission_factor &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   country_of_domicile &lt;chr&gt;, plant_location &lt;chr&gt;, number_of_assets &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   is_ultimate_owner &lt;lgl&gt;, is_ultimate_listed_owner &lt;lgl&gt;,</span>
 <span class="co">#&gt; #   ald_timestamp &lt;chr&gt;</span></pre></div>
@@ -189,19 +174,19 @@
 <div class="sourceCode" id="cb5"><pre class="r"><span class="fu">match_name</span>(<span class="no">loanbook_demo</span>, <span class="no">ald_demo</span>) <span class="kw">%&gt;%</span>
   <span class="fu">prioritize</span>()
 <span class="co">#&gt; # A tibble: 267 x 27</span>
-<span class="co">#&gt;    id_loan id_direct_loantâ¦ name_direct_loaâ¦ id_intermediateâ¦ name_intermediaâ¦</span>
+<span class="co">#&gt;    id_loan id_direct_loant… name_direct_loa… id_intermediate… name_intermedia…</span>
 <span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           </span>
 <span class="co">#&gt;  1 L151    C168             Shaanxi Auto     &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  2 L152    C169             Shandong Auto    &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  3 L153    C170             Shandong Kama    &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  4 L154    C171             Shandong Tangjuâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  5 L155    C173             Shanghai Automoâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  4 L154    C171             Shandong Tangju… &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  5 L155    C173             Shanghai Automo… &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  6 L156    C176             Shanxi Dayun     &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt;  7 L157    C178             Shenyang Polarsâ¦ &lt;NA&gt;             &lt;NA&gt;            </span>
+<span class="co">#&gt;  7 L157    C178             Shenyang Polars… &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  8 L158    C180             Shuanghuan Auto  &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt;  9 L159    C182             Sichuan Auto     &lt;NA&gt;             &lt;NA&gt;            </span>
 <span class="co">#&gt; 10 L160    C184             Singulato        &lt;NA&gt;             &lt;NA&gt;            </span>
-<span class="co">#&gt; # â¦ with 257 more rows, and 22 more variables: id_ultimate_parent &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 257 more rows, and 22 more variables: id_ultimate_parent &lt;chr&gt;,</span>
 <span class="co">#&gt; #   name_ultimate_parent &lt;chr&gt;, loan_size_outstanding &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   loan_size_outstanding_currency &lt;chr&gt;, loan_size_credit_limit &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   loan_size_credit_limit_currency &lt;chr&gt;, sector_classification_system &lt;chr&gt;,</span>
@@ -267,7 +252,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
